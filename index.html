@@ -399,11 +399,51 @@
 <p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo</a> 是一个快速、简洁且高效的博客框架。  </p>
 </blockquote>
 <p>本文将简单介绍如何利用 Hexo 和 GitHub Pages 搭建个人博客</p>
-<h1 id="一、安装-Hexo"><a href="#一、安装-Hexo" class="headerlink" title="一、安装 Hexo"></a>一、安装 Hexo</h1><h3 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h3><p>安装 Hexo 相当简单。然而在安装前，您必须检查电脑中是否已安装下列应用程序：  </p>
+<h3 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h3><p>安装 Hexo 相当简单。然而在安装前，您必须检查电脑中是否已安装下列应用程序：  </p>
 <ul>
 <li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>   </li>
 <li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>  </li>
 </ul>
+<p>如果您的电脑中已经安装上述必备程序，那么恭喜您！接下来只需要使用 npm 即可完成 Hexo 的安装。  </p>
+<blockquote>
+<p>npm install -g hexo-cli    </p>
+</blockquote>
+<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<blockquote>
+<p>hexo init  </p>
+</blockquote>
+<blockquote>
+<p>npm install</p>
+</blockquote>
+<h3 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h3><blockquote>
+<p>hexo new “文章名”</p>
+</blockquote>
+<p>新建的文章将会存在 source/_posts 中，_posts 就是默认模板，文章文件名称将会是 文章名.md，然后打开这个文件编辑完保存就ok了。</p>
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><p>写完博客后生成静态网页文件</p>
+<blockquote>
+<p>hexo g </p>
+</blockquote>
+<h3 id="本地调试"><a href="#本地调试" class="headerlink" title="本地调试"></a>本地调试</h3><p>本地服务器启动完之后，访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 来验证一下你写的文章预览效果。</p>
+<blockquote>
+<p>hexo s –debug</p>
+</blockquote>
+<h3 id="部署到-GitHub"><a href="#部署到-GitHub" class="headerlink" title="部署到 GitHub"></a>部署到 GitHub</h3><h4 id="安装部署工具"><a href="#安装部署工具" class="headerlink" title="安装部署工具"></a>安装部署工具</h4><blockquote>
+<p>npm install hexo-deployer-git –save</p>
+</blockquote>
+<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p>打开主配置文件，填上你的仓库地址</p>
+<pre><code>deploy:
+  type: git
+  repository: https://github.com/xxx/xxxx.github.io.git
+  branch: master
+</code></pre><p>ssh这些不用讲了自己配一下</p>
+<h4 id="最后部署网站到-GitHub"><a href="#最后部署网站到-GitHub" class="headerlink" title="最后部署网站到 GitHub"></a>最后部署网站到 GitHub</h4><blockquote>
+<p>hexo d</p>
+</blockquote>
+<hr>
+<p>之后如果再发布文章，可以直接用以下命令</p>
+<blockquote>
+<p>hexo clean<br>hexo d -g</p>
+</blockquote>
 
           
         
