@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-24T01:18:22.364Z</updated>
+  <updated>2018-07-24T15:45:53.441Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Https 原理使么惊！</title>
+    <link href="http://yoursite.com/2018/07/24/Https%E5%8E%9F%E7%90%86%E4%BD%BF%E4%B9%88%E6%83%8A%EF%BC%81/"/>
+    <id>http://yoursite.com/2018/07/24/Https原理使么惊！/</id>
+    <published>2018-07-24T14:32:01.000Z</published>
+    <updated>2018-07-24T15:45:53.441Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文将通俗，简单的介绍一下 HTTPS 的实现原理 </p></blockquote><p>HTTPS 简单来讲就是安全版的 HTTP 。 HTTP 是位于应用层的协议用于定义如何包装数据 , TCP 是传输层的协议用于如何传输数据 , 而 HTTPS 就是在这两层间加上一层加密层 TSL/SSL 。</p><a id="more"></a><p>下面来举个例子 ：</p><h3 id="对称加密-："><a href="#对称加密-：" class="headerlink" title="对称加密 ："></a>对称加密 ：</h3><p>如果有一天，A &nbsp;想对 B 发一条信息，如何保证信息不被他人偷看到呢？<br>方法很简单，A 和 B 两个人都选用同一种加密算法, A 用 算法1 对信息进行加密， 然后 B 再用 算法1 将信息解密， 好像很稳，这就是所谓的 <strong>对称加密算法</strong> ， 算法1 就是所谓的 <strong>秘钥</strong> 。</p><img src="/2018/07/24/Https原理使么惊！/1532446201(1).jpg" title="对称加密"><h3 id="非对称加密-："><a href="#非对称加密-：" class="headerlink" title="非对称加密 ："></a>非对称加密 ：</h3><p>对称加密看起来很稳，然而问题来了，秘钥要如何传输给对方呢？如果直接传输秘钥岂不是等于没有加密。这里可以使用 <strong>非对称加密</strong> 的算法来加密对称加密的秘钥，非对称加密算法的特点是：<strong>公钥加密的信息只有私钥解密，私钥加密的信息只有公钥能解密</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文将通俗，简单的介绍一下 HTTPS 的实现原理 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;HTTPS 简单来讲就是安全版的 HTTP 。 HTTP 是位于应用层的协议用于定义如何包装数据 , TCP 是传输层的协议用于如何传输数据 , 而 HTTPS 就是在这两层间加上一层加密层 TSL/SSL 。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="HTTPS" scheme="http://yoursite.com/categories/HTTPS/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Hexo文章折叠</title>
