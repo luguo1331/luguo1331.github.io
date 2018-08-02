@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-01T15:09:41.236Z</updated>
+  <updated>2018-08-02T13:32:37.113Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在Linux下使用Rinetd来实现端口转发</title>
+    <link href="http://yoursite.com/2018/08/02/%E5%9C%A8Linux%E4%B8%8B%E4%BD%BF%E7%94%A8Rinetd%E6%9D%A5%E5%AE%9E%E7%8E%B0%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
+    <id>http://yoursite.com/2018/08/02/在Linux下使用Rinetd来实现端口转发/</id>
+    <published>2018-08-02T13:00:06.000Z</published>
+    <updated>2018-08-02T13:32:37.113Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文将简单介绍一下再 Linux 下如何使用 Rinetd 来实现端口转发</p></blockquote><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实习的第三天，东哥找到我，让我将内网的东西透过一台服务器转发到公网，想了一下可以使用 Linux 自带的 IPtables 来实现但是配置起来好像有点麻烦， 用 Nginx 来实现的话本身也有点限制，不过东哥也建议我用 Rinetd 来实现，毕竟 Rinetd 比 IPtables 来说更加短小、高效，配置也更加简单。那好吧，既然领导也这样要求，我就随着大佬的节奏扭动着身躯说：“干”。</p><a id="more"></a><h3 id="什么是-Rinetd"><a href="#什么是-Rinetd" class="headerlink" title="什么是 Rinetd"></a>什么是 Rinetd</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rinetd 其实就是一个在 Linux 系统中为重定向传输控制协议连接的一个工具，简单来讲就是可以实现将本机端口接收到的请求到远程服务器端口上。其实在 Linux 下端口转发一般都是使用 IPtables 来现实，不过 Rinetd 的优势在于更加短小、高效，而且配置也非常简单。  </p><h3 id="配置第三方源"><a href="#配置第三方源" class="headerlink" title="配置第三方源"></a>配置第三方源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ vim  /etc/yum.repos.d/nux-misc.repo:</span><br><span class="line"></span><br><span class="line">[nux-misc]</span><br><span class="line">name=Nux Misc</span><br><span class="line">baseurl=http://li.nux.ro/download/nux/misc/el6/x86_64/</span><br><span class="line">enabled=0</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro</span><br></pre></td></tr></table></figure><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum --enablerepo=nux-misc install rinetd</span><br></pre></td></tr></table></figure><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>去到 /etc/rinetd.conf 打开配置文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[bindaddress] [bindport] [connectaddress] [connectport]</span><br><span class="line"> 绑定的地址     绑定的端口   连接的地址        连接的端口</span><br></pre></td></tr></table></figure><p>配置规则真的是非常简单明了</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0.0.0.0 8080 192.16.162.3 8080</span><br><span class="line">allow *.*.*.*</span><br><span class="line">logfile /var/log/rinetd.log</span><br></pre></td></tr></table></figure><blockquote><p>说明：上面的配置的意思就是讲 0.0.0.0 （本机）的 8080 端口接收到的所有请求都转发到 192.16.162.3 的 8080 端口上。<br>allow设置允许访问的ip地址信息,<em>.</em>.<em>.</em>表示所有IP地址<br>logfil设置打印的log的位置</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文将简单介绍一下再 Linux 下如何使用 Rinetd 来实现端口转发&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;实习的第三天，东哥找到我，让我将内网的东西透过一台服务器转发到公网，想了一下可以使用 Linux 自带的 IPtables 来实现但是配置起来好像有点麻烦， 用 Nginx 来实现的话本身也有点限制，不过东哥也建议我用 Rinetd 来实现，毕竟 Rinetd 比 IPtables 来说更加短小、高效，配置也更加简单。那好吧，既然领导也这样要求，我就随着大佬的节奏扭动着身躯说：“干”。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Rinetd" scheme="http://yoursite.com/categories/Rinetd/"/>
+    
+    
+      <category term="Rinetd" scheme="http://yoursite.com/tags/Rinetd/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>设计一个又getMin功能的栈</title>
@@ -42,9 +69,9 @@
     <link href="http://yoursite.com/2018/08/01/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BB%A3%E7%A0%81%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/"/>
     <id>http://yoursite.com/2018/08/01/程序员代码面试指南/</id>
     <published>2018-08-01T12:59:08.000Z</published>
-    <updated>2018-08-01T15:19:21.672Z</updated>
+    <updated>2018-08-01T15:29:58.332Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>【目录】《程序员代码面试指南》读书笔记</p></blockquote><a id="more"></a><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>做过很多所谓的算法题，但是由于本人有点浮躁的原因，总是做了又忘，于是感触把做过的题，看过的书记录下来，以背以后能复习。</p><h3 id="第-1-章-栈和队列"><a href="#第-1-章-栈和队列" class="headerlink" title="第 1 章 栈和队列"></a>第 1 章 栈和队列</h3><p><a href="https://luguo1331.github.io/2018/08/01/%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%8F%88getMin%E5%8A%9F%E8%83%BD%E7%9A%84%E6%A0%88/#more" target="_blank" rel="noopener">设计一个又getMin功能的栈</a></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>【目录】《程序员代码面试指南》读书笔记</p></blockquote><a id="more"></a><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>做过很多所谓的算法题，但是由于本人有点浮躁的原因，总是做了又忘，于是感触把做过的题，看过的书记录下来，以背以后能复习。</p><h3 id="第-1-章-栈和队列"><a href="#第-1-章-栈和队列" class="headerlink" title="第 1 章 栈和队列"></a>第 1 章 栈和队列</h3><ul><li><a href="https://luguo1331.github.io/2018/08/01/%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%8F%88getMin%E5%8A%9F%E8%83%BD%E7%9A%84%E6%A0%88/#more" target="_blank" rel="noopener">设计一个又getMin功能的栈</a></li></ul>]]></content>
     
     <summary type="html">
     
