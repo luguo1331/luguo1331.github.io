@@ -81,21 +81,17 @@
 
 
 
-<meta name="description" content="本文将通俗，简单的介绍一下 HTTPS 的实现原理   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;HTTPS 简单来讲就是安全版的 HTTP 。 HTTP 是位于应用层的协议用于定义如何包装数据 , TCP 是传输层的协议用于如何传输数据 , 而 HTTPS 就是在这两层间加上一层加密层 TSL/SSL 。">
+<meta name="description" content="【题目】&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;编写一个类，用两个栈实现队列，支持队列的基本操作（add、poll、peek）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Https 原理使么惊！">
-<meta property="og:url" content="http://yoursite.com/2018/07/24/Https原理使么惊！/index.html">
+<meta property="og:title" content="由两个栈组成的队列">
+<meta property="og:url" content="http://yoursite.com/2018/08/02/由两个栈组成的队列/index.html">
 <meta property="og:site_name" content="Junyi&#39;s Blog">
-<meta property="og:description" content="本文将通俗，简单的介绍一下 HTTPS 的实现原理   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;HTTPS 简单来讲就是安全版的 HTTP 。 HTTP 是位于应用层的协议用于定义如何包装数据 , TCP 是传输层的协议用于如何传输数据 , 而 HTTPS 就是在这两层间加上一层加密层 TSL/SSL 。">
+<meta property="og:description" content="【题目】&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;编写一个类，用两个栈实现队列，支持队列的基本操作（add、poll、peek）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/07/24/Https原理使么惊！/1532446201(1).jpg">
-<meta property="og:image" content="http://yoursite.com/2018/07/24/Https原理使么惊！/1532448007(1).jpg">
-<meta property="og:image" content="http://yoursite.com/2018/07/24/Https原理使么惊！/1532449099(1).jpg">
-<meta property="og:updated_time" content="2018-07-25T01:05:51.443Z">
+<meta property="og:updated_time" content="2018-08-02T15:36:39.660Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Https 原理使么惊！">
-<meta name="twitter:description" content="本文将通俗，简单的介绍一下 HTTPS 的实现原理   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;HTTPS 简单来讲就是安全版的 HTTP 。 HTTP 是位于应用层的协议用于定义如何包装数据 , TCP 是传输层的协议用于如何传输数据 , 而 HTTPS 就是在这两层间加上一层加密层 TSL/SSL 。">
-<meta name="twitter:image" content="http://yoursite.com/2018/07/24/Https原理使么惊！/1532446201(1).jpg">
+<meta name="twitter:title" content="由两个栈组成的队列">
+<meta name="twitter:description" content="【题目】&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;编写一个类，用两个栈实现队列，支持队列的基本操作（add、poll、peek）">
 
 
 
@@ -125,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/24/Https原理使么惊！/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/02/由两个栈组成的队列/"/>
 
 
 
 
 
-  <title>Https 原理使么惊！ | Junyi's Blog</title>
+  <title>由两个栈组成的队列 | Junyi's Blog</title>
   
 
 
@@ -308,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/24/Https原理使么惊！/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/02/由两个栈组成的队列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.junyi">
@@ -325,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Https 原理使么惊！</h1>
+          <h1 class="post-title" itemprop="name headline">由两个栈组成的队列</h1>
         
 
         <div class="post-meta">
@@ -337,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-24T22:32:01+08:00">
-                2018-07-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T22:53:23+08:00">
+                2018-08-02
               </time>
             
 
@@ -360,8 +356,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTTPS/" itemprop="url" rel="index">
-                    <span itemprop="name">HTTPS</span>
+                  <a href="/categories/算法和数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">算法和数据结构</span>
                   </a>
                 </span>
 
@@ -397,23 +393,9 @@
       
 
       
-        <blockquote>
-<p>本文将通俗，简单的介绍一下 HTTPS 的实现原理 </p>
-</blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTTPS 简单来讲就是安全版的 HTTP 。 HTTP 是位于应用层的协议用于定义如何包装数据 , TCP 是传输层的协议用于如何传输数据 , 而 HTTPS 就是在这两层间加上一层加密层 TSL/SSL 。</p>
-<a id="more"></a>
-<p>下面来举个例子 ：</p>
-<h3 id="对称加密-："><a href="#对称加密-：" class="headerlink" title="对称加密 ："></a>对称加密 ：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果有一天，A &nbsp;想对 B 发一条信息，如何保证信息不被他人偷看到呢？<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法很简单，A 和 B 两个人都选用同一种加密算法, A 用 算法1 对信息进行加密， 然后 B 再用 算法1 将信息解密， 好像很稳，这就是所谓的 <strong>对称加密算法</strong> ， 算法1 就是所谓的 <strong>秘钥</strong> 。</p>
-<img src="/2018/07/24/Https原理使么惊！/1532446201(1).jpg" title="对称加密">
-<h3 id="非对称加密-："><a href="#非对称加密-：" class="headerlink" title="非对称加密 ："></a>非对称加密 ：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对称加密看起来很稳，然而问题来了，秘钥要如何传输给对方呢？<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果直接传输秘钥岂不是等于没有加密。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这里可以使用 <strong>非对称加密</strong> 的算法来加密对称加密的秘钥，非对称加密算法的特点是：<strong>公钥加密的信息只有私钥解密，私钥加密的信息只有公钥能解密</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果将私钥放在服务端，公钥放在客户端，这样至少可以保证客户端到服务端的信息是安全的。</p>
-<img src="/2018/07/24/Https原理使么惊！/1532448007(1).jpg" title="非对称加密">
-<h3 id="中间人劫持-："><a href="#中间人劫持-：" class="headerlink" title="中间人劫持 ："></a>中间人劫持 ：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用非对称加密 + 对称加密 好像能够完美解决传递信息的安全和速度问题。但是真的那么美好吗？因为公钥是公开的，大家都能够获取得到，假如有别有用心的人，将服务端发来的公钥替换成自己的公钥再发给客户端，客户端用这个假的公钥加密对称加密的秘钥再发给服务端，中间人就能够用自己的私钥解密，然后获取到秘钥，这就是所谓的<strong>中间人劫持</strong></p>
-<img src="/2018/07/24/Https原理使么惊！/1532449099(1).jpg" title="中间人劫持">
-<h3 id="认证中心："><a href="#认证中心：" class="headerlink" title="认证中心："></a>认证中心：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为公钥被掉包的缘故，我们又陷入了鸡生蛋蛋生鸡的问题。那么如何解决呢？既然服务器传输公钥给服务端是不安全的，那么我们能不能引入一个第三方机构，用这个第三方机构的私钥将服务端的公钥进行加密，客户端再用第三方的公钥解密出服务端的公钥，这个第三方机构就是所谓的 <strong>认证中心</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当网站向  CA（认证中心）提交了申请，CA 审核通过后，将证书颁发给网站，用户访问网站的时候，网站将证书给到用户，用户从证书中取出网站公钥。  </p>
-<h3 id="证书可能存在哪些问题"><a href="#证书可能存在哪些问题" class="headerlink" title="证书可能存在哪些问题"></a>证书可能存在哪些问题</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;看到这里不知道大家心中有没有疑问， 服务端传过来的证书是用 CA 的公钥解密的，那。。。那不是谁都可以解开，也就是说服务端传来的数据有可能的是不安全的！那如何保证证书是合法的呢？证书又有可能面临什么呢问题呢？<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;证书非法主要由两种情况 :<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、证书是伪造的<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、证书被篡改过</p>
-<h3 id="证书防伪"><a href="#证书防伪" class="headerlink" title="证书防伪"></a>证书防伪</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数字证书当中主要包含了 CA 机构的名字 、用CA私钥加密过的证书本身的数字签名、服务端公钥、证书签名用到的hash算法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;证书是伪造的，浏览器直接不认识over<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;证书被篡改过，用 CA 公钥将证书的数字签名解密，将解密出来的摘要用 hash 算法 hash 一下，再将结果与摘要进行对比，稳了。</p>
-<h3 id="CA-的-‘根证书’"><a href="#CA-的-‘根证书’" class="headerlink" title="CA 的 ‘根证书’"></a>CA 的 ‘根证书’</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到这来问题好像已经解决了，但不知道大家有没有疑惑，你 CA 的公钥要怎么传输服务端，如果直接传输过程当中又被中间人劫持怎么破？我们好像又陷入了鸡生蛋蛋生鸡的问题当中了。。。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其实 CA 本身有自己的证书用来证明 CA 的身份的，不过你又怎么保证这份证书没有被篡改呢？那么只好由上一级 CA 来验证 CA 的身份了。。。于是这么一级级的上去，最后到达操作系统/浏览器预置的顶层 CA 证书 ，相当于你自动信任了它们。所以说搞了半天，你还是通过这种“寄硬盘”的方式来传送秘钥。</p>
-
+        <h3 id="【题目】"><a href="#【题目】" class="headerlink" title="【题目】"></a>【题目】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编写一个类，用两个栈实现队列，支持队列的基本操作（add、poll、peek）<br><a id="more"></a></p>
+<h3 id="【解答】"><a href="#【解答】" class="headerlink" title="【解答】"></a>【解答】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这道题难度还是比较小，栈的特点是先进后出，队列的特点是先进先出，因此把数据先压入一个栈 stackPush ，然后再弹出，再压入到另一个栈 stackPop，最后出栈的时候就能实现先进先出的顺序了。但是这道题还是有一点小坑的，简单的来讲有两点。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第一点， stackPush 向 stackPop 压栈的时候必须一次性压完，假如只压到一半就停下来，这时候如果有人出栈，顺序就不对了。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二点， stackPop 不为空的时候，stackPush 不能向其中压栈，如果不为空还有元素入栈，顺序就会不对。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说了那么多，那具体实现思路是什么呢？很简单，就是保证 stackPop 压栈的时候里面一定是空的。实现死了可以有很多，这里就说一种，比如，向 stackPush 压栈的时候随便压，但是队列 poll 的时候先判断一下 stackPop 是不是为空，为空的话就将 stackPush 的元素全部压入到 stackPop 当中，然后出栈。同理，队列 peek 的时候也一样。  </p>
+<h3 id="【代码实现】"><a href="#【代码实现】" class="headerlink" title="【代码实现】"></a>【代码实现】</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TwoStackQueue</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> Stack&lt;Integer&gt; stackPush;</span><br><span class="line">    <span class="keyword">public</span> Stack&lt;Integer&gt; stackPop;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TwoStackQueue</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.stackPush = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">this</span>.stackPop = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> pushInt)</span></span>&#123;</span><br><span class="line">        stackPush.push(pushInt);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(stackPush.empty()&amp;&amp;stackPop.empty())&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RunTimeException(<span class="string">"Queue is empty"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!stackPop.empty())&#123;</span><br><span class="line">            <span class="keyword">while</span>(!stackPush.empty())&#123;</span><br><span class="line">                stackPop.push(stackPush.pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stackPop.pop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(stackPush.empty()&amp;&amp;stackPop.empty())&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RunTimeException(<span class="string">"Queue is empty"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!stackPop.empty())&#123;</span><br><span class="line">            <span class="keyword">while</span>(!stackPush.empty())&#123;</span><br><span class="line">                stackPop.push(stackPush.pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stackPop.peak();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -437,8 +419,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/24/Hexo文章折叠/" rel="next" title="Hexo文章折叠">
-                <i class="fa fa-chevron-left"></i> Hexo文章折叠
+              <a href="/2018/08/02/Https单向认证和双向认证介绍/" rel="next" title="Https单向认证和双向认证介绍">
+                <i class="fa fa-chevron-left"></i> Https单向认证和双向认证介绍
               </a>
             
           </div>
@@ -446,10 +428,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/27/大数数据-初识Hapdoop/" rel="prev" title="大数据-初识Hapdoop">
-                大数据-初识Hapdoop <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -608,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#对称加密-："><span class="nav-number">1.</span> <span class="nav-text">对称加密 ：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非对称加密-："><span class="nav-number">2.</span> <span class="nav-text">非对称加密 ：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中间人劫持-："><span class="nav-number">3.</span> <span class="nav-text">中间人劫持 ：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#认证中心："><span class="nav-number">4.</span> <span class="nav-text">认证中心：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#证书可能存在哪些问题"><span class="nav-number">5.</span> <span class="nav-text">证书可能存在哪些问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#证书防伪"><span class="nav-number">6.</span> <span class="nav-text">证书防伪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CA-的-‘根证书’"><span class="nav-number">7.</span> <span class="nav-text">CA 的 ‘根证书’</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#【题目】"><span class="nav-number">1.</span> <span class="nav-text">【题目】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【解答】"><span class="nav-number">2.</span> <span class="nav-text">【解答】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【代码实现】"><span class="nav-number">3.</span> <span class="nav-text">【代码实现】</span></a></li></ol></div>
             
 
           </div>
