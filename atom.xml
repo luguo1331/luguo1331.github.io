@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-04T17:48:39.223Z</updated>
+  <updated>2018-08-04T18:29:10.623Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小和问题</title>
+    <link href="http://yoursite.com/2018/08/05/%E5%B0%8F%E5%92%8C%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/08/05/小和问题/</id>
+    <published>2018-08-04T18:10:20.000Z</published>
+    <updated>2018-08-04T18:29:10.623Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="【题目】"><a href="#【题目】" class="headerlink" title="【题目】"></a>【题目】</h3><blockquote><p>在一个数组中，每一个数左边比当前数小的数累加起来，叫做这个数组的小和。求一个数组的小和。<br><a id="more"></a><br>例子：<br>[1,3,4,2,5]<br>1左边比1小的数，没有；<br>3左边比3小的数，1；<br>4左边比4小的数，1、3；<br>2左边比2小的数，1；<br>5左边比5小的数，1、3、4、2；<br>所以小和为1+1+3+1+1+3+4+2=16</p></blockquote><h3 id="【解答】"><a href="#【解答】" class="headerlink" title="【解答】"></a>【解答】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果学过归并排序还是能比较简单地完成这道题。归并排序的归并过程中会对序列中的元素进行比较，如果左边的数比右边的数小，则证明右边往后有多少个数比左边的数大可以算出小和为 arr[p1] * (R-p2+1)</p><h3 id="【代码实现】"><a href="#【代码实现】" class="headerlink" title="【代码实现】"></a>【代码实现】</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sortProcess</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L == R)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = L +((R-L)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> sortProcess(arr,L,mid) +</span><br><span class="line">    sortProcess(arr,mid+<span class="number">1</span>,R) +</span><br><span class="line">        merge(arr,L,mid,R);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> L,<span class="keyword">int</span> mid, <span class="keyword">int</span> R)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] help = <span class="keyword">new</span> <span class="keyword">int</span>[R-L+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> p1 = L;</span><br><span class="line">    <span class="keyword">int</span> p2 = mid + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(p1 &lt;= mid &amp;&amp; p2 &lt;= R)&#123;</span><br><span class="line">        res += arr[p1] &lt; arr[p2] ? arr[p1]*(R-p2+<span class="number">1</span>):<span class="number">0</span>;</span><br><span class="line">        help[i++] = arr[p1] &lt; arr[p2] ? arr[p1++] : arr[p2++];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(p1 &lt;= mid)&#123;</span><br><span class="line">        help[i++] = arr[p1++];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(p2 &lt;= R)&#123;</span><br><span class="line">        help[i++] = arr[p2++];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; help.length; i++)&#123;</span><br><span class="line">        arr[L+i]  = help[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;【题目】&quot;&gt;&lt;a href=&quot;#【题目】&quot; class=&quot;headerlink&quot; title=&quot;【题目】&quot;&gt;&lt;/a&gt;【题目】&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;在一个数组中，每一个数左边比当前数小的数累加起来，叫做这个数组的小和。求一个数组的小和。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="算法和数据结构" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>归并排序</title>
