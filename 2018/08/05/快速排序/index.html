@@ -81,17 +81,19 @@
 
 
 
-<meta name="description" content="start from zero">
+<meta name="description" content="【基本思想】&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;快速排序的基本思想就是通过一趟排序以基准元素为界限将待排序列分割成两个独立的部分，然后再对两个独立的部分进行快排，依次类推直到序列整体有序。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="快速排序">
 <meta property="og:url" content="http://yoursite.com/2018/08/05/快速排序/index.html">
 <meta property="og:site_name" content="Junyi&#39;s Blog">
-<meta property="og:description" content="start from zero">
+<meta property="og:description" content="【基本思想】&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;快速排序的基本思想就是通过一趟排序以基准元素为界限将待排序列分割成两个独立的部分，然后再对两个独立的部分进行快排，依次类推直到序列整体有序。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-05T15:30:51.573Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/05/快速排序/eaca66d26efe27519e8c462d3a7d4593_849589-20171015230936371-1413523412.gif">
+<meta property="og:updated_time" content="2018-08-05T16:26:13.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速排序">
-<meta name="twitter:description" content="start from zero">
+<meta name="twitter:description" content="【基本思想】&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;快速排序的基本思想就是通过一趟排序以基准元素为界限将待排序列分割成两个独立的部分，然后再对两个独立的部分进行快排，依次类推直到序列整体有序。">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/05/快速排序/eaca66d26efe27519e8c462d3a7d4593_849589-20171015230936371-1413523412.gif">
 
 
 
@@ -344,6 +346,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/排序算法/" itemprop="url" rel="index">
+                    <span itemprop="name">排序算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -371,7 +395,36 @@
       
 
       
-        
+        <h3 id="【基本思想】"><a href="#【基本思想】" class="headerlink" title="【基本思想】"></a>【基本思想】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;快速排序的基本思想就是通过一趟排序以基准元素为界限将待排序列分割成两个独立的部分，然后再对两个独立的部分进行快排，依次类推直到序列整体有序。<br><a id="more"></a></p>
+<h3 id="【算法复杂度】"><a href="#【算法复杂度】" class="headerlink" title="【算法复杂度】"></a>【算法复杂度】</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>排序方法</th>
+<th style="text-align:center">时间复杂度（平均）</th>
+<th style="text-align:center">时间复杂度 （最坏）</th>
+<th style="text-align:center">时间复杂度（最好）</th>
+<th style="text-align:center">空间复杂度</th>
+<th style="text-align:center">稳定性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>快速排序</td>
+<td style="text-align:center">O(nlogn)</td>
+<td style="text-align:center">O(n^2)</td>
+<td style="text-align:center">O(nlogn)</td>
+<td style="text-align:center">O(logn)</td>
+<td style="text-align:center">不稳定</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="【动图演示】"><a href="#【动图演示】" class="headerlink" title="【动图演示】"></a>【动图演示】</h3><img src="/2018/08/05/快速排序/eaca66d26efe27519e8c462d3a7d4593_849589-20171015230936371-1413523412.gif" title="快速排序">
+<h3 id="【算法实现】"><a href="#【算法实现】" class="headerlink" title="【算法实现】"></a>【算法实现】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;快速排序实现起来很简单，先用 L&lt;R 来控制快排是否发生，如果条件满足则进行快排。而具体的每一次排序和荷兰国旗问题很相像，不过这里的基准元素选择了最后一个数来充当，同样的比 arr[R] 小的放左边，大的放右边，相等的放中间，最后再将 arr[R] 与 大于它的第一位数交换，稳了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L &lt; R)&#123;</span><br><span class="line">        <span class="keyword">int</span> [] p = partition(arr,L,R);</span><br><span class="line">        quickSort(arr, L, p[<span class="number">0</span>] - <span class="number">1</span>);</span><br><span class="line">        quickSort(arr, p[<span class="number">1</span>] + <span class="number">1</span>,R);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] partition(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> L,<span class="keyword">int</span> R)&#123;</span><br><span class="line">    <span class="keyword">int</span> less = L - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> more = R ;</span><br><span class="line">    <span class="keyword">while</span>(L &lt; more)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[L] &lt; arr[R])&#123;</span><br><span class="line">            swap(arr, ++less, L++);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(arr[L] &gt; arr[R])&#123;</span><br><span class="line">            swap(arr, --more, L);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            L++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    swap(arr,more,R);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;less + <span class="number">1</span>, more&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = arr[i];</span><br><span class="line">    arr[i] = arr[j];</span><br><span class="line">    arr[j] = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="【算法优化】"><a href="#【算法优化】" class="headerlink" title="【算法优化】"></a>【算法优化】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其实上面的实现已经是经典快排的优化版了，在经典快排中每次就只排好一个数，就是那个基准元素，如果基准元素不止一个，在下一次的排序当中又要对这个元素进行排序。而上面的实现是把等于这个基准元素的元素一整片都排好了，所以相对经典快排，上面的实现会更快一点。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上面的实现中其实有一个很严重的问题，当待排序列是有序的时候，因为每次都选最后一个值来当基准元素，所以 partition 这个过程会被重复 n 次，这样快排就会退化成 O(n^2) 的算法了。为了解决这个问题，所以选基准元素的时候就采用随机选取的方式来选取，这也就是<strong>随机快排</strong>。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L &lt; R)&#123;</span><br><span class="line">        swap(arr, L + (<span class="keyword">int</span>) (Math.random() * (R - L + <span class="number">1</span> )), R);</span><br><span class="line">        <span class="keyword">int</span> [] p = partition(arr,L,R);</span><br><span class="line">        quickSort(arr, L, p[<span class="number">0</span>] - <span class="number">1</span>);</span><br><span class="line">        quickSort(arr, p[<span class="number">1</span>] + <span class="number">1</span>,R);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] partition(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> L,<span class="keyword">int</span> R)&#123;</span><br><span class="line">    <span class="keyword">int</span> less = L - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> more = R ;</span><br><span class="line">    <span class="keyword">while</span>(L &lt; more)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[L] &lt; arr[R])&#123;</span><br><span class="line">            swap(arr, ++less, L++);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(arr[L] &gt; arr[R])&#123;</span><br><span class="line">            swap(arr, --more, L);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            L++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    swap(arr,more,R);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;less + <span class="number">1</span>, more&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = arr[i];</span><br><span class="line">    arr[i] = arr[j];</span><br><span class="line">    arr[j] = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -455,8 +508,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -543,6 +605,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#【基本思想】"><span class="nav-number">1.</span> <span class="nav-text">【基本思想】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【算法复杂度】"><span class="nav-number">2.</span> <span class="nav-text">【算法复杂度】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【动图演示】"><span class="nav-number">3.</span> <span class="nav-text">【动图演示】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【算法实现】"><span class="nav-number">4.</span> <span class="nav-text">【算法实现】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【算法优化】"><span class="nav-number">5.</span> <span class="nav-text">【算法优化】</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
