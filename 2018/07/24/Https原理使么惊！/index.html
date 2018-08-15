@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/07/24/Https原理使么惊！/1532446201(1).jpg">
 <meta property="og:image" content="http://yoursite.com/2018/07/24/Https原理使么惊！/1532448007(1).jpg">
 <meta property="og:image" content="http://yoursite.com/2018/07/24/Https原理使么惊！/1532449099(1).jpg">
-<meta property="og:updated_time" content="2018-08-04T10:48:54.234Z">
+<meta property="og:updated_time" content="2018-08-15T13:52:02.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Https 原理使么惊！">
 <meta name="twitter:description" content="本文将通俗，简单的介绍一下 HTTPS 的大致实现原理   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;HTTPS 简单来讲就是安全版的 HTTP 。 HTTP 是位于应用层的协议用于定义如何包装数据 , TCP 是传输层的协议用于如何传输数据 , 而 HTTPS 就是在这两层间加上一层加密层 TSL/SSL 。">
@@ -411,8 +411,8 @@
 <img src="/2018/07/24/Https原理使么惊！/1532449099(1).jpg" title="中间人劫持">
 <h3 id="认证中心："><a href="#认证中心：" class="headerlink" title="认证中心："></a>认证中心：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为公钥被掉包的缘故，我们又陷入了鸡生蛋蛋生鸡的问题。那么如何解决呢？既然服务器传输公钥给服务端是不安全的，那么我们能不能引入一个第三方机构，用这个第三方机构的私钥将服务端的公钥进行加密，客户端再用第三方的公钥解密出服务端的公钥，这个第三方机构就是所谓的 <strong>认证中心</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当网站向  CA（认证中心）提交了申请，CA 审核通过后，将证书颁发给网站，用户访问网站的时候，网站将证书给到用户，用户从证书中取出网站公钥。  </p>
 <h3 id="证书可能存在哪些问题"><a href="#证书可能存在哪些问题" class="headerlink" title="证书可能存在哪些问题"></a>证书可能存在哪些问题</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;看到这里不知道大家心中有没有疑问， 服务端传过来的证书是用 CA 的公钥解密的，那。。。那不是谁都可以解开，也就是说服务端传来的数据有可能的是不安全的！那如何保证证书是合法的呢？证书又有可能面临什么呢问题呢？<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;证书非法主要由两种情况 :<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、证书是伪造的<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、证书被篡改过</p>
-<h3 id="证书防伪"><a href="#证书防伪" class="headerlink" title="证书防伪"></a>证书防伪</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数字证书当中主要包含了 CA 机构的名字 、用CA私钥加密过的证书本身的数字签名、服务端公钥、证书签名用到的hash算法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;证书是伪造的，浏览器直接不认识over<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;证书被篡改过，用 CA 公钥将证书的数字签名解密，将解密出来的摘要用 hash 算法 hash 一下，再将结果与摘要进行对比，稳了。</p>
-<h3 id="CA-的-‘根证书’"><a href="#CA-的-‘根证书’" class="headerlink" title="CA 的 ‘根证书’"></a>CA 的 ‘根证书’</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到这来问题好像已经解决了，但不知道大家有没有疑惑，你 CA 的公钥要怎么传输服务端，如果直接传输过程当中又被中间人劫持怎么破？我们好像又陷入了鸡生蛋蛋生鸡的问题当中了。。。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其实 CA 本身有自己的证书用来证明 CA 的身份的，不过你又怎么保证这份证书没有被篡改呢？那么只好由上一级 CA 来验证 CA 的身份了。。。于是这么一级级的上去，最后到达操作系统/浏览器预置的顶层 CA 证书 ，相当于你自动信任了它们。所以说搞了半天，你还是通过这种“寄硬盘”的方式来传送公钥。</p>
+<h3 id="证书防伪"><a href="#证书防伪" class="headerlink" title="证书防伪"></a>证书防伪</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数字证书当中主要包含了 CA 机构的名字 、用 CA 私钥加密过的证书本身的数字签名、服务端公钥、证书签名用到的hash算法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;证书是伪造的，浏览器直接不认识over<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;证书被篡改过，用 CA 公钥将证书的数字签名解密，将解密出来的摘要用 hash 算法 hash 一下，再将结果与摘要进行对比，稳了。</p>
+<h3 id="CA-的-‘根证书’"><a href="#CA-的-‘根证书’" class="headerlink" title="CA 的 ‘根证书’"></a>CA 的 ‘根证书’</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到这来问题好像已经解决了，但不知道大家有没有疑惑，你 CA 的公钥要怎么传输客户端呢，如果直接传输过程当中又被中间人劫持怎么破？我们好像又陷入了鸡生蛋蛋生鸡的问题当中了。。。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其实 CA 本身有自己的证书用来证明 CA 的身份的，不过你又怎么保证这份证书没有被篡改呢？那么只好由上一级 CA 来验证 CA 的身份了。。。于是这么一级级的上去，最后到达操作系统/浏览器预置的顶层 CA 证书 ，相当于你自动信任了它们，你自带了他们的公钥，所以说搞了半天，你还是通过这种“寄硬盘”的方式来传送公钥。</p>
 
       
     </div>
@@ -530,7 +530,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
