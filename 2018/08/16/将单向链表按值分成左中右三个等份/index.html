@@ -73,6 +73,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="Junyi's Blog" type="application/atom+xml" />
 
@@ -81,19 +83,17 @@
 
 
 
-<meta name="description" content="【基本思想】&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;冒泡排序的基本思想就是将两两相邻的元素进行比较，大的交换到右边，这样一轮调整下来，最大的数就会上浮到最右边。重复这个步骤，直到剩下一个元素，排序完成。">
+<meta name="description" content="【题目】给定一个单向链表的头节点 head ，节点的值类型是整型，再给定一个整数 pivot 。实现一个调整链的函数，将链表调整为左部分都是值小于 pivot 的节点，中间部分都是值等于 pivot 的节点，右部分都是值大于 pivot 的节点。除这个要求外，对调整后的节点顺序没有更多的要求。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="冒泡排序">
-<meta property="og:url" content="http://yoursite.com/2018/08/04/冒泡排序/index.html">
+<meta property="og:title" content="将单向链表按值分成左中右三个等份">
+<meta property="og:url" content="http://yoursite.com/2018/08/16/将单向链表按值分成左中右三个等份/index.html">
 <meta property="og:site_name" content="Junyi&#39;s Blog">
-<meta property="og:description" content="【基本思想】&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;冒泡排序的基本思想就是将两两相邻的元素进行比较，大的交换到右边，这样一轮调整下来，最大的数就会上浮到最右边。重复这个步骤，直到剩下一个元素，排序完成。">
+<meta property="og:description" content="【题目】给定一个单向链表的头节点 head ，节点的值类型是整型，再给定一个整数 pivot 。实现一个调整链的函数，将链表调整为左部分都是值小于 pivot 的节点，中间部分都是值等于 pivot 的节点，右部分都是值大于 pivot 的节点。除这个要求外，对调整后的节点顺序没有更多的要求。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/08/04/冒泡排序/微信图片_20180804192527.gif">
-<meta property="og:updated_time" content="2018-08-04T14:21:56.076Z">
+<meta property="og:updated_time" content="2018-08-16T16:14:18.735Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="冒泡排序">
-<meta name="twitter:description" content="【基本思想】&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;冒泡排序的基本思想就是将两两相邻的元素进行比较，大的交换到右边，这样一轮调整下来，最大的数就会上浮到最右边。重复这个步骤，直到剩下一个元素，排序完成。">
-<meta name="twitter:image" content="http://yoursite.com/2018/08/04/冒泡排序/微信图片_20180804192527.gif">
+<meta name="twitter:title" content="将单向链表按值分成左中右三个等份">
+<meta name="twitter:description" content="【题目】给定一个单向链表的头节点 head ，节点的值类型是整型，再给定一个整数 pivot 。实现一个调整链的函数，将链表调整为左部分都是值小于 pivot 的节点，中间部分都是值等于 pivot 的节点，右部分都是值大于 pivot 的节点。除这个要求外，对调整后的节点顺序没有更多的要求。">
 
 
 
@@ -123,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/04/冒泡排序/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/16/将单向链表按值分成左中右三个等份/"/>
 
 
 
 
 
-  <title>冒泡排序 | Junyi's Blog</title>
+  <title>将单向链表按值分成左中右三个等份 | Junyi's Blog</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/04/冒泡排序/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/16/将单向链表按值分成左中右三个等份/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.junyi">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">冒泡排序</h1>
+          <h1 class="post-title" itemprop="name headline">将单向链表按值分成左中右三个等份</h1>
         
 
         <div class="post-meta">
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-04T19:24:12+08:00">
-                2018-08-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-16T22:43:14+08:00">
+                2018-08-16
               </time>
             
 
@@ -358,8 +358,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/排序算法/" itemprop="url" rel="index">
-                    <span itemprop="name">排序算法</span>
+                  <a href="/categories/算法和数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">算法和数据结构</span>
                   </a>
                 </span>
 
@@ -395,36 +395,10 @@
       
 
       
-        <h3 id="【基本思想】"><a href="#【基本思想】" class="headerlink" title="【基本思想】"></a>【基本思想】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;冒泡排序的基本思想就是将两两相邻的元素进行比较，大的交换到右边，这样一轮调整下来，最大的数就会上浮到最右边。重复这个步骤，直到剩下一个元素，排序完成。<br><a id="more"></a></p>
-<h3 id="【算法复杂度】"><a href="#【算法复杂度】" class="headerlink" title="【算法复杂度】"></a>【算法复杂度】</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>排序方法</th>
-<th style="text-align:center">时间复杂度（平均）</th>
-<th style="text-align:center">时间复杂度 （最坏）</th>
-<th style="text-align:center">时间复杂度（最好）</th>
-<th style="text-align:center">空间复杂度</th>
-<th style="text-align:center">稳定性</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>冒泡排序</td>
-<td style="text-align:center">O(n^2)</td>
-<td style="text-align:center">O(n^2)</td>
-<td style="text-align:center">O(n)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">稳定</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="【动图演示】"><a href="#【动图演示】" class="headerlink" title="【动图演示】"></a>【动图演示】</h3><img src="/2018/08/04/冒泡排序/微信图片_20180804192527.gif" title="冒泡排序">
-<h3 id="【算法实现】"><a href="#【算法实现】" class="headerlink" title="【算法实现】"></a>【算法实现】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实现思路很简单，先判断一下数组大小，少于两个元素的数组排个鸡儿序。定义一个 end 变量控制整个冒泡过程，每次冒泡的范围减一，直到等于零。然后相邻元素两两对比， arr[i] &gt; arr[i-1] 时交换。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> bubbleSort（<span class="keyword">int</span>[] arr）&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> end = arr.length -<span class="number">1</span>; end &gt; <span class="number">0</span>; end--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; end; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] &gt; arr[i+<span class="number">1</span>])&#123;</span><br><span class="line">                swap(arr, i, i+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = arr[i];</span><br><span class="line">    arr[i] = arr[j];</span><br><span class="line">    arr[j] = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="【算法优化】"><a href="#【算法优化】" class="headerlink" title="【算法优化】"></a>【算法优化】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从上面的实现思路我们知道，在冒泡过程中发生最后一次交换的位置到数组末尾其实都是有序的，但是就算已经有序，程序还是会继续冒泡下去直到 end = 0，因此我们可以增加一个 pos 变量来记录最后一个交换的位置，当数组本身就接近有序时，就可以凭借 pos 变量跳过循环。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> end = arr.length; end &gt; <span class="number">0</span>; end--)&#123;</span><br><span class="line">        <span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; end; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] &gt; arr[i+<span class="number">1</span>])&#123;</span><br><span class="line">                pos = i;</span><br><span class="line">                swap(arr, i, i+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        end = pos;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;传统的冒泡排序每一趟冒泡只会有找出一个最大值（最小值），在这里可以用双指针法来让一次冒泡就找到最大值、最小值。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = arr.length-<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> tmp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (left &lt; right)&#123;</span><br><span class="line">        <span class="keyword">int</span> rightPos = left;</span><br><span class="line">        <span class="keyword">int</span> leftPos = right;</span><br><span class="line">        <span class="keyword">for</span>(tmp = left; tmp &lt;right; tmp++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[tmp] &gt; arr[tmp+<span class="number">1</span>])&#123;</span><br><span class="line">                rightPos = tmp;</span><br><span class="line">                swap(arr,tmp,tmp+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        right = rightPos;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(tmp = right; tmp &gt; left; tmp-- )&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[tmp] &gt; arr[tmp-<span class="number">1</span>])&#123;</span><br><span class="line">                leftPos = tmp;</span><br><span class="line">                swap(arr,tmp,tmp+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        left = leftPos;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+        <h3 id="【题目】"><a href="#【题目】" class="headerlink" title="【题目】"></a>【题目】</h3><p>给定一个单向链表的头节点 head ，节点的值类型是整型，再给定一个整数 pivot 。实现一个调整链的函数，将链表调整为左部分都是值小于 pivot 的节点，中间部分都是值等于 pivot 的节点，右部分都是值大于 pivot 的节点。除这个要求外，对调整后的节点顺序没有更多的要求。<br><a id="more"></a><br>进阶： 在原问题的要求之上再增加如下两个要求。在左、中、右三个部分的内部也做顺序要求，要求每部分里的节点从左 到右的顺序与原链表中节点的先后次序一致。如果链表长度为N，时间复杂度请达到O(N)，额外空间复杂度请达到O(1)。</p>
+<h3 id="【解答】"><a href="#【解答】" class="headerlink" title="【解答】"></a>【解答】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;先看最基本的要求，不要求稳定性，那这题不就是荷兰国旗问题的嘛，将链表的节点全部放到数组当中，然后 Partition() 一下不就稳了，最后把弄好的数组放回到链表中。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基本的要求很简单，再来看看进阶要求，其实就是要求不借助额外空间。实现起来也很简单，就是麻烦一点，说白了不就是先将链表遍历链表，然后将分别三种不同情况（大于，小于，等于）的节点分别连起来嘛，但是还是会有一些特殊情况出现，比如三种情况可能不会全部出现，这个时候直接连起来就会出现问题，不过这都细节问题，连的时候判断处理一下不就稳了嘛，说干就干。</p>
+<h3 id="【代码实现】"><a href="#【代码实现】" class="headerlink" title="【代码实现】"></a>【代码实现】</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Node <span class="title">listPartition1</span><span class="params">(Node head, <span class="keyword">int</span> pivot)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">    Node cur = head;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(cur != <span class="keyword">null</span>)&#123;</span><br><span class="line">        i++;</span><br><span class="line">        cur = cur.next;</span><br><span class="line">    &#125;</span><br><span class="line">    Node[] nodeArr = <span class="keyword">new</span> Node[i];</span><br><span class="line">    cur = head;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; nodeArr.length; i++)&#123;</span><br><span class="line">        nodeArr[i] = cur;</span><br><span class="line">        cur = cur.next;</span><br><span class="line">    &#125;</span><br><span class="line">    arrPartition(nodeArr, pivot);</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt; nodeArr.length; i++)&#123;</span><br><span class="line">        nodeArr[i-<span class="number">1</span>].next = nodeArr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    nodeArr[i - <span class="number">1</span>].next = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">return</span> nodeArr[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">arrPartition</span><span class="params">(Node[] nodeArr, <span class="keyword">int</span> pivot)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> small = -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> big = nodeArr.length;</span><br><span class="line">	<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (index != big) &#123;</span><br><span class="line">		<span class="keyword">if</span> (nodeArr[index].value &lt; pivot) &#123;</span><br><span class="line">			swap(nodeArr, ++small, index++);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeArr[index].value == pivot) &#123;</span><br><span class="line">			index++;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			swap(nodeArr, --big, index);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(Node[] nodeArr, <span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">	Node tmp = nodeArr[a];</span><br><span class="line">	nodeArr[a] = nodeArr[b];</span><br><span class="line">	nodeArr[b] = tmp;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Node <span class="title">listPartition2</span><span class="params">(Node head,<span class="keyword">int</span> pivot)</span></span>&#123;</span><br><span class="line">    Node sH = <span class="keyword">null</span>;</span><br><span class="line">    Node sT = <span class="keyword">null</span>;</span><br><span class="line">    Node eH = <span class="keyword">null</span>;</span><br><span class="line">    Node eT = <span class="keyword">null</span>;</span><br><span class="line">    Node bH = <span class="keyword">null</span>;</span><br><span class="line">    Node bT = <span class="keyword">null</span>;    </span><br><span class="line">    Node next = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">while</span>(head != <span class="keyword">null</span>)&#123;</span><br><span class="line">        next = head.next;</span><br><span class="line">        head.next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span>(head.value &lt; pivot)&#123;</span><br><span class="line">            <span class="keyword">if</span>(sH == <span class="keyword">null</span>)&#123;</span><br><span class="line">                sH = sT = head;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                sT.next = head;</span><br><span class="line">                sT.next = head;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(head.value == pivot)&#123;</span><br><span class="line">            <span class="keyword">if</span>(eH == <span class="keyword">null</span>)&#123;</span><br><span class="line">                eH = eT = head;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                eT.next = head;</span><br><span class="line">                eT.next = head;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(head.value &gt; pivot)&#123;</span><br><span class="line">            <span class="keyword">if</span>(bH == <span class="keyword">null</span>)&#123;</span><br><span class="line">                bH = bT = head;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                bT.next = head;</span><br><span class="line">                bT.next = head;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        head = next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(sT != <span class="keyword">null</span>)&#123;</span><br><span class="line">        sT.next = eH;</span><br><span class="line">        eT = eT == <span class="keyword">null</span> ? sT : eT;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(eT != <span class="keyword">null</span>)&#123; <span class="comment">//eT如果是空在上一步被换成了sT</span></span><br><span class="line">        eT.next = bH;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sH != <span class="keyword">null</span> ? sH : eH != <span class="keyword">null</span> ? eH : bH;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -448,8 +422,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/03/用一个栈实现另一个栈的排序/" rel="next" title="用一个栈实现另一个栈的排序">
-                <i class="fa fa-chevron-left"></i> 用一个栈实现另一个栈的排序
+              <a href="/2018/08/15/判断一个链表是否为回文结构/" rel="next" title="判断一个链表是否为回文结构">
+                <i class="fa fa-chevron-left"></i> 判断一个链表是否为回文结构
               </a>
             
           </div>
@@ -457,10 +431,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/04/选择排序/" rel="prev" title="选择排序">
-                选择排序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -619,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#【基本思想】"><span class="nav-number">1.</span> <span class="nav-text">【基本思想】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【算法复杂度】"><span class="nav-number">2.</span> <span class="nav-text">【算法复杂度】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【动图演示】"><span class="nav-number">3.</span> <span class="nav-text">【动图演示】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【算法实现】"><span class="nav-number">4.</span> <span class="nav-text">【算法实现】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【算法优化】"><span class="nav-number">5.</span> <span class="nav-text">【算法优化】</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#【题目】"><span class="nav-number">1.</span> <span class="nav-text">【题目】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【解答】"><span class="nav-number">2.</span> <span class="nav-text">【解答】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【代码实现】"><span class="nav-number">3.</span> <span class="nav-text">【代码实现】</span></a></li></ol></div>
             
 
           </div>
