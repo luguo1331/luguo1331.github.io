@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-18T06:58:53.980Z</updated>
+  <updated>2018-08-18T08:00:40.926Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在二叉树中找到一个节点的后继节点</title>
+    <link href="http://yoursite.com/2018/08/18/%E5%9C%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E6%89%BE%E5%88%B0%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9/"/>
+    <id>http://yoursite.com/2018/08/18/在二叉树中找到一个节点的后继节点/</id>
+    <published>2018-08-18T07:15:17.000Z</published>
+    <updated>2018-08-18T08:00:40.926Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="【题目】"><a href="#【题目】" class="headerlink" title="【题目】"></a>【题目】</h3><p>现在有一种新的二叉树节点类型如下：<br>public class Node { public int value; public Node left;<br>public Node right; public Node parent;<br>public Node(int data) { this.value = data; }<br>}<br><a id="more"></a><br>该结构比普通二叉树节点结构多了一个指向父节点的parent指针。假设有一 棵Node类型的节点组成的二叉树，树中每个节点的parent指针都正确地指向 自己的父节点，头节点的parent指向null。只给一个在二叉树中的某个节点 node，请实现返回node的后继节点的函数。在二叉树的中序遍历的序列中， node的下一个节点叫作node的后继节点。</p><h3 id="【解答】"><a href="#【解答】" class="headerlink" title="【解答】"></a>【解答】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这题实现思路很简单，中序遍历就是左根右，遍历当中每一个节点都是“根”，它的后继节点必定出现在“右”当中，所以如果一个节点有右孩子，在遍历右孩子的过程中必定是从右孩子的最左边的节点开始遍历，那么后继节点就是这个右孩子的最左节点。如果一个节点没有右孩子，那么就去找它的父节点，如果它的父节点的左孩子就是这个数的话，后继就是它父亲。</p><h3 id="【代码实现】"><a href="#【代码实现】" class="headerlink" title="【代码实现】"></a>【代码实现】</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Node <span class="title">getNextNode</span><span class="params">(Node node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(node.right != <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> getLeftMost(node.right);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        Node parent = node.parent;</span><br><span class="line">        <span class="keyword">while</span>(parent != <span class="keyword">null</span> &amp;&amp; parent.left != node)&#123;</span><br><span class="line">            node = parent;</span><br><span class="line">            parent = node.parent;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> parent;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Node <span class="title">getLeftMost</span><span class="params">(Node node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(node.left != <span class="keyword">null</span>)&#123;</span><br><span class="line">        node = node.left;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;【题目】&quot;&gt;&lt;a href=&quot;#【题目】&quot; class=&quot;headerlink&quot; title=&quot;【题目】&quot;&gt;&lt;/a&gt;【题目】&lt;/h3&gt;&lt;p&gt;现在有一种新的二叉树节点类型如下：&lt;br&gt;public class Node { public int value; public Node left;&lt;br&gt;public Node right; public Node parent;&lt;br&gt;public Node(int data) { this.value = data; }&lt;br&gt;}&lt;br&gt;
+    
+    </summary>
+    
+      <category term="算法和数据结构" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>二叉树的先序、中序、后序遍历</title>
@@ -404,31 +424,6 @@
     
       <category term="算法和数据结构" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Https单向认证和双向认证介绍</title>
-    <link href="http://yoursite.com/2018/08/02/Https%E5%8D%95%E5%90%91%E8%AE%A4%E8%AF%81%E5%92%8C%E5%8F%8C%E5%90%91%E8%AE%A4%E8%AF%81%E4%BB%8B%E7%BB%8D/"/>
-    <id>http://yoursite.com/2018/08/02/Https单向认证和双向认证介绍/</id>
-    <published>2018-08-02T14:03:59.000Z</published>
-    <updated>2018-08-04T10:49:31.590Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>本文将简单介绍一下在 HTTPS 中的单向认证和双向认证的过程。  </p></blockquote><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今天上班一早在问东哥问题时，东哥给我详细解释了一下单向认证和双向认证的过程，在这里记录一下。</p><a id="more"></a><h3 id="前提知识"><a href="#前提知识" class="headerlink" title="前提知识"></a>前提知识</h3><p><a href="https://luguo1331.github.io/2018/07/24/Https%E5%8E%9F%E7%90%86%E4%BD%BF%E4%B9%88%E6%83%8A%EF%BC%81/" target="_blank" rel="noopener">Https 原理使么惊！</a>在这里就不在赘述了，有兴趣的小伙伴可以看一下。这篇博客大概说了一下流程，但是细节没有顾及到</p><h3 id="单向认证"><a href="#单向认证" class="headerlink" title="单向认证"></a>单向认证</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单向认证的过程比较简单，过程大概有以下流程：</p><ul><li>客户端向服务端连接发送请求，在这里客户端传送了一个随机数 Random1 和一些加密套件</li><li>服务端返回择加密程度最高的套件返回给客户端，还有随机数 Random2</li><li>服务端将自己的证书下发给客户端</li><li>客户端验证服务端发来的证书，验证成功后再生成预主秘钥 Random3 ,并且取出公钥加密，然后返回给服务端</li><li>服务端用私钥解密信息获得预主秘钥 Random3，然后根据 Random1 + Random2 + Random3 通过之前协商好的加密套件生成对称秘钥，然后就可以通信了。 <img src="/2018/08/02/Https单向认证和双向认证介绍/db9b822b4b67151263c924e4feb65ea.png" title="单向认证握手图"></li></ul><h3 id="双向认证"><a href="#双向认证" class="headerlink" title="双向认证"></a>双向认证</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;双向认证的过程比较其实和单向认证大同小异，只不过是增加了服务端对客户端的验证，只有经过身份验证的服务器才允许请求客户端身份验证：</p><ul><li>服务器发送 Certificate Request 消息请求客户端进行身份验证，消息中带有接受的证书的公钥和签名算法或者证书颁发机构列表。</li><li>客户端发送证书链给服务器 Certificate。</li><li>客户端使用 Certificate Verify 消息证明自己拥有的私钥与之前发送的客户端证书中的公钥相对应</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文将简单介绍一下在 HTTPS 中的单向认证和双向认证的过程。  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;今天上班一早在问东哥问题时，东哥给我详细解释了一下单向认证和双向认证的过程，在这里记录一下。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="HTTPS" scheme="http://yoursite.com/categories/HTTPS/"/>
-    
-    
-      <category term="HTTPS" scheme="http://yoursite.com/tags/HTTPS/"/>
     
   </entry>
   
