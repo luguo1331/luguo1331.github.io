@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="Junyi&#39;s Blog">
 <meta property="og:description" content="【题目】现在有一种新的二叉树节点类型如下：public class Node { public int value; public Node left;public Node right; public Node parent;public Node(int data) { this.value = data; }}">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-18T08:00:40.926Z">
+<meta property="og:updated_time" content="2018-08-18T08:11:40.722Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在二叉树中找到一个节点的后继节点">
 <meta name="twitter:description" content="【题目】现在有一种新的二叉树节点类型如下：public class Node { public int value; public Node left;public Node right; public Node parent;public Node(int data) { this.value = data; }}">
@@ -394,7 +394,7 @@
 
       
         <h3 id="【题目】"><a href="#【题目】" class="headerlink" title="【题目】"></a>【题目】</h3><p>现在有一种新的二叉树节点类型如下：<br>public class Node { public int value; public Node left;<br>public Node right; public Node parent;<br>public Node(int data) { this.value = data; }<br>}<br><a id="more"></a><br>该结构比普通二叉树节点结构多了一个指向父节点的parent指针。假设有一 棵Node类型的节点组成的二叉树，树中每个节点的parent指针都正确地指向 自己的父节点，头节点的parent指向null。只给一个在二叉树中的某个节点 node，请实现返回node的后继节点的函数。在二叉树的中序遍历的序列中， node的下一个节点叫作node的后继节点。</p>
-<h3 id="【解答】"><a href="#【解答】" class="headerlink" title="【解答】"></a>【解答】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这题实现思路很简单，中序遍历就是左根右，遍历当中每一个节点都是“根”，它的后继节点必定出现在“右”当中，所以如果一个节点有右孩子，在遍历右孩子的过程中必定是从右孩子的最左边的节点开始遍历，那么后继节点就是这个右孩子的最左节点。如果一个节点没有右孩子，那么就去找它的父节点，如果它的父节点的左孩子就是这个数的话，后继就是它父亲。</p>
+<h3 id="【解答】"><a href="#【解答】" class="headerlink" title="【解答】"></a>【解答】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这题实现思路很简单，中序遍历就是左根右，遍历当中每一个节点都是“根”，它的后继节点必定出现在“右”当中，所以如果一个节点有右孩子，在遍历右孩子的过程中必定是从右孩子的最左边的节点开始遍历，那么后继节点就是这个<strong>右孩子的最左节点</strong>。如果一个节点没有右孩子，那么就去找它的父节点，如果它的父节点的左孩子等于 node 的话，后继就是它父亲。拓展一下的话，如果面试中有人问你前驱节点怎么找，反过来就是了，<strong>左孩子的最右节点</strong>，没有右孩子就去找他父亲的右孩子是不是和 node 相等。</p>
 <h3 id="【代码实现】"><a href="#【代码实现】" class="headerlink" title="【代码实现】"></a>【代码实现】</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Node <span class="title">getNextNode</span><span class="params">(Node node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(node.right != <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> getLeftMost(node.right);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        Node parent = node.parent;</span><br><span class="line">        <span class="keyword">while</span>(parent != <span class="keyword">null</span> &amp;&amp; parent.left != node)&#123;</span><br><span class="line">            node = parent;</span><br><span class="line">            parent = node.parent;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> parent;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Node <span class="title">getLeftMost</span><span class="params">(Node node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(node.left != <span class="keyword">null</span>)&#123;</span><br><span class="line">        node = node.left;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -428,6 +428,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/18/二叉树的序列化和反序列化/" rel="prev" title="二叉树的序列化和反序列化">
+                二叉树的序列化和反序列化 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -508,7 +512,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
