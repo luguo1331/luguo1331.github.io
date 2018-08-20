@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="【题目】给定一个链表的头节点head，请判断该链表是否为回文结构。 例如： 1-&amp;gt;2-&amp;gt;1，返回true。 1-&amp;gt;2-&amp;gt;2-&amp;gt;1，返回15-&amp;gt;6-&amp;gt;15，返回true。 1-&amp;gt;2-&amp;gt;3，返回false。true。进阶： 如果链表长度为N，时间复杂度达到O(N)，额外空间复杂度达到O(1)。">
+<meta name="description" content="已知一棵完全二叉树，求其节点的个数要求：时间复杂度低于O(N)，N为这棵树的节点个数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="判断一个链表是否为回文结构">
-<meta property="og:url" content="http://yoursite.com/2018/08/15/判断一个链表是否为回文结构/index.html">
+<meta property="og:title" content="已知一棵完全二叉树，求其节点的个数">
+<meta property="og:url" content="http://yoursite.com/2018/08/20/已知一棵完全二叉树，求其节点的个数/index.html">
 <meta property="og:site_name" content="Junyi&#39;s Blog">
-<meta property="og:description" content="【题目】给定一个链表的头节点head，请判断该链表是否为回文结构。 例如： 1-&amp;gt;2-&amp;gt;1，返回true。 1-&amp;gt;2-&amp;gt;2-&amp;gt;1，返回15-&amp;gt;6-&amp;gt;15，返回true。 1-&amp;gt;2-&amp;gt;3，返回false。true。进阶： 如果链表长度为N，时间复杂度达到O(N)，额外空间复杂度达到O(1)。">
+<meta property="og:description" content="已知一棵完全二叉树，求其节点的个数要求：时间复杂度低于O(N)，N为这棵树的节点个数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-15T13:47:17.272Z">
+<meta property="og:updated_time" content="2018-08-20T14:50:57.178Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="判断一个链表是否为回文结构">
-<meta name="twitter:description" content="【题目】给定一个链表的头节点head，请判断该链表是否为回文结构。 例如： 1-&amp;gt;2-&amp;gt;1，返回true。 1-&amp;gt;2-&amp;gt;2-&amp;gt;1，返回15-&amp;gt;6-&amp;gt;15，返回true。 1-&amp;gt;2-&amp;gt;3，返回false。true。进阶： 如果链表长度为N，时间复杂度达到O(N)，额外空间复杂度达到O(1)。">
+<meta name="twitter:title" content="已知一棵完全二叉树，求其节点的个数">
+<meta name="twitter:description" content="已知一棵完全二叉树，求其节点的个数要求：时间复杂度低于O(N)，N为这棵树的节点个数">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/15/判断一个链表是否为回文结构/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/20/已知一棵完全二叉树，求其节点的个数/"/>
 
 
 
 
 
-  <title>判断一个链表是否为回文结构 | Junyi's Blog</title>
+  <title>已知一棵完全二叉树，求其节点的个数 | Junyi's Blog</title>
   
 
 
@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/15/判断一个链表是否为回文结构/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/20/已知一棵完全二叉树，求其节点的个数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.junyi">
@@ -321,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">判断一个链表是否为回文结构</h1>
+          <h1 class="post-title" itemprop="name headline">已知一棵完全二叉树，求其节点的个数</h1>
         
 
         <div class="post-meta">
@@ -333,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-15T20:11:50+08:00">
-                2018-08-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-20T22:31:34+08:00">
+                2018-08-20
               </time>
             
 
@@ -393,11 +393,9 @@
       
 
       
-        <h3 id="【题目】"><a href="#【题目】" class="headerlink" title="【题目】"></a>【题目】</h3><p>给定一个链表的头节点head，请判断该链表是否为回文结构。 例如： 1-&gt;2-&gt;1，返回true。 1-&gt;2-&gt;2-&gt;1，返回15-&gt;6-&gt;15，返回true。 1-&gt;2-&gt;3，返回false。true。<br>进阶： 如果链表长度为N，时间复杂度达到O(N)，额外空间复杂度达到O(1)。<br><a id="more"></a></p>
-<h3 id="【解答】"><a href="#【解答】" class="headerlink" title="【解答】"></a>【解答】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这道题要解决还是非常简单，首先讲两种简单的解决思路。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第一种实现思路非常简单，回文结构顾名思义正着看和反着看顺序都是一样的，那样判断就很简单啦，将链表整个反转过来一比较不就知道了，反转不就是逆序吗，刚好栈的特点就是先进后出，不就是逆序吗，一拍即合，于是将链表整个放进栈里面，再一个个出栈比较，稳了。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二种思路也差不多,因为回文的结构特点，所以回文必定是对称的，所以我们完全可以只将后半段入栈，然后比较一下不就稳了，具体实现可以使用两个指针，慢指针一次走一步，慢指针一次走两步，快指针走完，慢指针刚好走到中间，然后将慢指针直到末尾的结点入栈，然后比较，打完收工。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第三种思路无聊一点，但是面试要考，这种思路的主要特点是不需要额外的空间，直接改变列表的顺序，再比较，然后恢复。具体实现按部就班，两个指针，一快一慢，走到最后，快指针 n2 指向末尾，慢指针 n1 指向中间。然后将快指针 n2 指向慢指针 n1 的后一位，然后从中间将链表分成两半，然后将 n2 的下一位给 n3 ，记录下下一位的位置，然后将 n2 指向的结点指向 n1,然后将 n1 ， n2 的位置向右移，依次类推直到 n2 移到最后，这个过程将链表的后半段的指向颠倒了过来，相当于 1-&gt;2-&gt;2-&gt;1,变成 1-&gt;2&lt;-2&lt;-1。然后不经意地将链表元素头尾比较了一遍，稳了。最后将链表复原。</p>
-<h3 id="【代码实现】"><a href="#【代码实现】" class="headerlink" title="【代码实现】"></a>【代码实现】</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindromeFirst</span><span class="params">(Node head)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Stack&lt;Node&gt; stack = <span class="keyword">new</span> Stack&lt;Node&gt;();</span><br><span class="line">    Node cur = head;</span><br><span class="line">    <span class="keyword">while</span>(cur != <span class="keyword">null</span>)&#123;</span><br><span class="line">        stack.push(cur.next);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(head != <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(head.value != stack.pop().value)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        head = head.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindromeSecond</span><span class="params">(Node head)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Node right = head.next;</span><br><span class="line">    Node cur = head;</span><br><span class="line">    <span class="keyword">while</span>(cur.next != <span class="keyword">null</span> &amp;&amp; cur.next.next != <span class="keyword">null</span>)&#123;</span><br><span class="line">        right = right.next;</span><br><span class="line">        cur = cur.next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    Stack&lt;Node&gt; stack = <span class="keyword">new</span> Stack&lt;Node&gt;();</span><br><span class="line">    <span class="keyword">while</span>(right != <span class="keyword">null</span>)&#123;</span><br><span class="line">        stack.push(right);</span><br><span class="line">        right = right.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!stack.isEmpty())&#123;</span><br><span class="line">        <span class="keyword">if</span>(head.value != stack.pop().value&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        head = head.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindromeThird</span><span class="params">(Node head)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Node n1 = head;</span><br><span class="line">    Node n2 = head;</span><br><span class="line">    <span class="keyword">while</span>(n2.next != <span class="keyword">null</span> &amp;&amp; n2.next.next != <span class="keyword">null</span>)&#123;</span><br><span class="line">        n1 = n1.next;</span><br><span class="line">        n2 = n2.next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    n2 = n1.next;</span><br><span class="line">    n1.next = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    Node n3 = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">//颠倒链表后半段顺序</span></span><br><span class="line">    <span class="keyword">while</span>(n2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">        n3 = n2.next;</span><br><span class="line">        n2.next = n1;</span><br><span class="line">        n1 = n2;</span><br><span class="line">        n2 = n3;</span><br><span class="line">    &#125;</span><br><span class="line">    n3 = n1;<span class="comment">//记录下链表的末尾位置</span></span><br><span class="line">    n2 = head;<span class="comment">//链表头</span></span><br><span class="line">    <span class="keyword">boolean</span> res = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">while</span> (n1 != <span class="keyword">null</span> &amp;&amp; n2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n1.value ！= n2.value&#123;</span><br><span class="line">            res = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        n1 = n1.next;</span><br><span class="line">        n2 = n2.next;</span><br><span class="line">    &#125;</span><br><span class="line">    n1 = n3.next;</span><br><span class="line">    n3.next = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">while</span>(n1 != <span class="keyword">null</span>)&#123;</span><br><span class="line">        n2 = n1.next;</span><br><span class="line">        n1.next = n3;</span><br><span class="line">        n3 = n1;</span><br><span class="line">        n1 = n2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p>已知一棵完全二叉树，求其节点的个数<br>要求：时间复杂度低于O(N)，N为这棵树的节点个数<br><a id="more"></a></p>
+<h3 id="【解答】"><a href="#【解答】" class="headerlink" title="【解答】"></a>【解答】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这题做得比较巧妙，首先我们算出左子树的高度，再计算出右子树的高度，再一比较，如果相等则证明左子树是满的，我们可以依据公式 2^h -1 算出左子树的节点数，如果右子树的高度比左子树小，则证明右子树的慢的，于是按照公式计算右子树的节点数，再递归计算左子树。依次类推，稳了。</p>
+<h3 id="【代码实现】"><a href="#【代码实现】" class="headerlink" title="【代码实现】"></a>【代码实现】</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> value;</span><br><span class="line">    <span class="keyword">private</span> Node left;</span><br><span class="line">    <span class="keyword">private</span> Node right;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(<span class="keyword">int</span> data)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">nodeNum</span><span class="params">(Node head)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="keyword">null</span>)&#123;</span><br><span class="line">        retrun <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> bs(head, <span class="number">1</span>, mostLeftLevel(head, <span class="number">1</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">bs</span><span class="params">(Node head, <span class="keyword">int</span> level, <span class="keyword">int</span> h)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(level == h)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(mostLeftLevel(node.right, level + <span class="number">1</span>) == h)&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="number">1</span> &lt;&lt; (h - level))  + bs(node.right, level + <span class="number">1</span>, h);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="number">1</span> &lt;&lt; (h - level - <span class="number">1</span>)) + bs(node.left, level + <span class="number">1</span>, h);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">mostLeftLevel</span><span class="params">(Node node, <span class="keyword">int</span> level)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(node != <span class="keyword">null</span>)&#123;</span><br><span class="line">        level++;</span><br><span class="line">        node = node.left;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> level -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -421,8 +419,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/09/生成窗口最大值数组/" rel="next" title="生成窗口最大值数组">
-                <i class="fa fa-chevron-left"></i> 生成窗口最大值数组
+              <a href="/2018/08/20/判断一棵二叉树是否是平衡二叉树/" rel="next" title="判断一棵二叉树是否是平衡二叉树、搜索二叉树、完全二叉树">
+                <i class="fa fa-chevron-left"></i> 判断一棵二叉树是否是平衡二叉树、搜索二叉树、完全二叉树
               </a>
             
           </div>
@@ -430,10 +428,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/16/将单向链表按值分成左中右三个等份/" rel="prev" title="将单向链表按值分成左中右三个等份">
-                将单向链表按值分成左中右三个等份 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -592,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#【题目】"><span class="nav-number">1.</span> <span class="nav-text">【题目】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【解答】"><span class="nav-number">2.</span> <span class="nav-text">【解答】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【代码实现】"><span class="nav-number">3.</span> <span class="nav-text">【代码实现】</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#【解答】"><span class="nav-number">1.</span> <span class="nav-text">【解答】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【代码实现】"><span class="nav-number">2.</span> <span class="nav-text">【代码实现】</span></a></li></ol></div>
             
 
           </div>
