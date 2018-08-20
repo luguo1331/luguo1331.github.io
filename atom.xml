@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-20T14:50:57.178Z</updated>
+  <updated>2018-08-20T15:45:04.543Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计RandomPool结构</title>
+    <link href="http://yoursite.com/2018/08/20/%E8%AE%BE%E8%AE%A1RandomPool%E7%BB%93%E6%9E%84/"/>
+    <id>http://yoursite.com/2018/08/20/设计RandomPool结构/</id>
+    <published>2018-08-20T15:18:52.000Z</published>
+    <updated>2018-08-20T15:45:04.543Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="【题目】"><a href="#【题目】" class="headerlink" title="【题目】"></a>【题目】</h3><p>设计一种结构，在该结构中有如下三个功能：<br>insert(key)：将某个key加入到该结构，做到不重复加入。<br>delete(key)：将原本在结构中的某个key移除。<br>getRandom()：等概率随机返回结构中的任何一个key。<br><a id="more"></a><br>【要求】 Insert、delete和getRandom方法的时间复杂度都O(1)</p><h3 id="【解答】"><a href="#【解答】" class="headerlink" title="【解答】"></a>【解答】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实现思路很简单，就是用两个 hashmap 来构成这个结构， keyIndexMap 、 indexKeyMap ,看到两个名字就懂了，没什么好说的。但是在实现 delete() 方法的时候要注意一下，如果直接将 map 中的元素删除掉，就会在 map 中留下一个空，当 getRandom() 的时候 时间复杂度就会不达标了，所以我们在删除的时候，用最后一个元素替换掉要删除的元素，同时把 size 减一，删掉最后一个，稳了。</p><h3 id="【代码实现】"><a href="#【代码实现】" class="headerlink" title="【代码实现】"></a>【代码实现】</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Pool&lt;K&gt;&#123;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;K, Integer&gt; keyIndexMap;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, K&gt; indexKeyMap;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Pool</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.keyIndexMap = <span class="keyword">new</span> HashMap&lt;K, Integer&gt;();</span><br><span class="line"><span class="keyword">this</span>.indexKeyMap = <span class="keyword">new</span> HashMap&lt;Integer, K&gt;();</span><br><span class="line"><span class="keyword">this</span>.size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(K key)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">this</span>.keyIndexMap.containsKey(key))&#123;</span><br><span class="line">            <span class="keyword">this</span>.keyIndexMap.put(key, <span class="keyword">this</span>.size);</span><br><span class="line">            <span class="keyword">this</span>.IndexKeyMap.put(<span class="keyword">this</span>.size++, key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(K Key)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.keyIndexMap.containsKey(Key))&#123;</span><br><span class="line">            <span class="keyword">int</span> deleteIndex = <span class="keyword">this</span>.keyIndexMap.get(key);</span><br><span class="line">            <span class="keyword">int</span> lastIndex = --<span class="keyword">this</span>.size;</span><br><span class="line">            K lastKey = <span class="keyword">this</span>.indexMap.get(lastIndex);</span><br><span class="line">            <span class="keyword">this</span>.keyIndexMap.put(lastKey, deleteIndex);</span><br><span class="line">            <span class="keyword">this</span>.indexKeyMap.put(deleteIndex, lastKey);</span><br><span class="line">            <span class="keyword">this</span>.keyIndexMap.remove(key);</span><br><span class="line">            <span class="keyword">this</span>.indexKeyMap.remove(lastIndex);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> K <span class="title">getRandom</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.size == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> randomIndex = (<span class="keyword">int</span>)(Math.random() * <span class="keyword">this</span>.size);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.indexKeyMap.get(randomIndex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;【题目】&quot;&gt;&lt;a href=&quot;#【题目】&quot; class=&quot;headerlink&quot; title=&quot;【题目】&quot;&gt;&lt;/a&gt;【题目】&lt;/h3&gt;&lt;p&gt;设计一种结构，在该结构中有如下三个功能：&lt;br&gt;insert(key)：将某个key加入到该结构，做到不重复加入。&lt;br&gt;delete(key)：将原本在结构中的某个key移除。&lt;br&gt;getRandom()：等概率随机返回结构中的任何一个key。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="算法和数据结构" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>已知一棵完全二叉树，求其节点的个数</title>
@@ -398,26 +418,6 @@
     </summary>
     
       <category term="排序算法" scheme="http://yoursite.com/categories/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>用一个栈实现另一个栈的排序</title>
-    <link href="http://yoursite.com/2018/08/03/%E7%94%A8%E4%B8%80%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%A0%88%E7%9A%84%E6%8E%92%E5%BA%8F/"/>
-    <id>http://yoursite.com/2018/08/03/用一个栈实现另一个栈的排序/</id>
-    <published>2018-08-03T15:44:03.000Z</published>
-    <updated>2018-08-03T15:59:04.394Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="【题目】"><a href="#【题目】" class="headerlink" title="【题目】"></a>【题目】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一个栈中的元素全部是整型，现在想让栈从栈顶到栈底由大到小排序，只能申请多一个栈，不能申请额外的数据结构。<br><a id="more"></a></p><h3 id="【解答】"><a href="#【解答】" class="headerlink" title="【解答】"></a>【解答】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这题基本上把题目看懂了就做出来了，栈顶到栈底由大到小排序，那么另外一个栈的顺序就是由小到大咯，要实现也很简单，每次从旧栈中拿出元素与新栈的栈顶元素比较，如果新栈是空栈就直接压入，如果新栈的栈顶值小于旧栈的栈顶值，就把新栈的栈顶值压入到旧栈中，直到旧栈取出来的值遇到遇到比它大的值或者新栈空掉，就这样循环，最后再将新栈的值压会到旧栈，打完收工。</p><h3 id="【代码实现】"><a href="#【代码实现】" class="headerlink" title="【代码实现】"></a>【代码实现】</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortStackByStack</span><span class="params">(Stack&lt;Integer&gt; stack)</span></span>&#123;</span><br><span class="line">    Stack&lt;Integer&gt; help = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">while</span>(!stack.isEmpty())&#123;</span><br><span class="line">        <span class="keyword">int</span> cur = stack.pop();</span><br><span class="line">        <span class="keyword">while</span>(!help.isEmpty() &amp;&amp; help.peek() &lt; cur)&#123;</span><br><span class="line">            stack.push(help.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        help.push(cur);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!help.isEmpty())&#123;</span><br><span class="line">        stack.push(help.pop());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;【题目】&quot;&gt;&lt;a href=&quot;#【题目】&quot; class=&quot;headerlink&quot; title=&quot;【题目】&quot;&gt;&lt;/a&gt;【题目】&lt;/h3&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;一个栈中的元素全部是整型，现在想让栈从栈顶到栈底由大到小排序，只能申请多一个栈，不能申请额外的数据结构。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="算法和数据结构" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     
   </entry>

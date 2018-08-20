@@ -81,20 +81,17 @@
 
 
 
-<meta name="description" content="本文将简单地介绍一下狭义的 Hadoop 的一些基本概念">
+<meta name="description" content="【题目】设计一种结构，在该结构中有如下三个功能：insert(key)：将某个key加入到该结构，做到不重复加入。delete(key)：将原本在结构中的某个key移除。getRandom()：等概率随机返回结构中的任何一个key。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大数据-初识Hapdoop">
-<meta property="og:url" content="http://yoursite.com/2018/07/27/大数数据-初识Hapdoop/index.html">
+<meta property="og:title" content="设计RandomPool结构">
+<meta property="og:url" content="http://yoursite.com/2018/08/20/设计RandomPool结构/index.html">
 <meta property="og:site_name" content="Junyi&#39;s Blog">
-<meta property="og:description" content="本文将简单地介绍一下狭义的 Hadoop 的一些基本概念">
+<meta property="og:description" content="【题目】设计一种结构，在该结构中有如下三个功能：insert(key)：将某个key加入到该结构，做到不重复加入。delete(key)：将原本在结构中的某个key移除。getRandom()：等概率随机返回结构中的任何一个key。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/07/27/大数数据-初识Hapdoop/d4a147747eef02ecab7233973ce764fa_SouthEast.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/07/27/大数数据-初识Hapdoop/1532701686(1).jpg">
-<meta property="og:updated_time" content="2018-07-27T15:21:41.439Z">
+<meta property="og:updated_time" content="2018-08-20T15:45:04.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大数据-初识Hapdoop">
-<meta name="twitter:description" content="本文将简单地介绍一下狭义的 Hadoop 的一些基本概念">
-<meta name="twitter:image" content="http://yoursite.com/2018/07/27/大数数据-初识Hapdoop/d4a147747eef02ecab7233973ce764fa_SouthEast.jpg">
+<meta name="twitter:title" content="设计RandomPool结构">
+<meta name="twitter:description" content="【题目】设计一种结构，在该结构中有如下三个功能：insert(key)：将某个key加入到该结构，做到不重复加入。delete(key)：将原本在结构中的某个key移除。getRandom()：等概率随机返回结构中的任何一个key。">
 
 
 
@@ -124,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/27/大数数据-初识Hapdoop/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/20/设计RandomPool结构/"/>
 
 
 
 
 
-  <title>大数据-初识Hapdoop | Junyi's Blog</title>
+  <title>设计RandomPool结构 | Junyi's Blog</title>
   
 
 
@@ -307,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/27/大数数据-初识Hapdoop/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/20/设计RandomPool结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.junyi">
@@ -324,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">大数据-初识Hapdoop</h1>
+          <h1 class="post-title" itemprop="name headline">设计RandomPool结构</h1>
         
 
         <div class="post-meta">
@@ -336,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T20:52:13+08:00">
-                2018-07-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-20T23:18:52+08:00">
+                2018-08-20
               </time>
             
 
@@ -359,8 +356,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/大数据/" itemprop="url" rel="index">
-                    <span itemprop="name">大数据</span>
+                  <a href="/categories/算法和数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">算法和数据结构</span>
                   </a>
                 </span>
 
@@ -396,31 +393,9 @@
       
 
       
-        <blockquote>
-<p>本文将简单地介绍一下狭义的 Hadoop 的一些基本概念</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="Hadoop-是什么"><a href="#Hadoop-是什么" class="headerlink" title="Hadoop 是什么"></a>Hadoop 是什么</h3><p><a href="http://hadoop.apache.org/" target="_blank" rel="noopener">Hadoop</a> 是一个可靠的、可拓展的、分布式的大型数据计算框架。<br>在 Hadoop 中包含这以下几个模块:  </p>
-<ul>
-<li>Hadoop Common : 提供了一些常用的工具来支持其他模块</li>
-<li>HDFS : 一个分布式文件系统</li>
-<li>YARN : 任务调度和集群资源管理的框架</li>
-<li>MapReduce : 一个计算框架</li>
-</ul>
-<h3 id="Hadoop-有什么用"><a href="#Hadoop-有什么用" class="headerlink" title="Hadoop 有什么用"></a>Hadoop 有什么用</h3><p>Hadoop 主要能搭建大型数据仓库，PB级数据的存储、处理、分析、统计等业务  </p>
-<ul>
-<li>搜索引擎</li>
-<li>日志分析</li>
-<li>数据挖掘</li>
-<li>商业智能</li>
-</ul>
-<h3 id="Hadoop-核心组件-HDFS"><a href="#Hadoop-核心组件-HDFS" class="headerlink" title="Hadoop 核心组件 - HDFS"></a>Hadoop 核心组件 - HDFS</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HDFS 来源于 Google 的 GFS ，因为 Google 只开源了论文，因此 Doug Cutting 和 Mike Cafarella 按照论文实现了类似于 GFS 的功能，这就是 HDFS 的前身。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HDFS具有易拓展、高容错性、海量数据存储的特点。相比于传统的文件系统的硬盘寻址方式, HDFS 通过引入存放文件信息的服务器 Namenode 和实际存放数据的服务器 Datanode 进行串接,以实现对数据系统进行快速的分布式储存读取。</p>
-<img src="/2018/07/27/大数数据-初识Hapdoop/d4a147747eef02ecab7233973ce764fa_SouthEast.jpg">
-<h3 id="Hadoop-核心组件-MapReduce"><a href="#Hadoop-核心组件-MapReduce" class="headerlink" title="Hadoop 核心组件 - MapReduce"></a>Hadoop 核心组件 - MapReduce</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随着 Google 发布了 MapReduce 论文, Mike Cafarella 也实现了一个最初版本的 MapReduce 。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MapReduce 具有易拓展、高容错性、海量数据离线处理得特点。MapReduce 的核心思想是对任务进行拆分（Map计算\Reduce计算）再根据任务调度器（JobTracker）对任务进行分布式计算。</p>
-<img src="/2018/07/27/大数数据-初识Hapdoop/1532701686(1).jpg">
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
-<p>总的来讲 Hadoop 就是一个在分布式服务集群上的存储海量数据和运行分布式分析应用的平台，其核心组件是 HDFS 和 MapReduce 。</p>
-</blockquote>
+        <h3 id="【题目】"><a href="#【题目】" class="headerlink" title="【题目】"></a>【题目】</h3><p>设计一种结构，在该结构中有如下三个功能：<br>insert(key)：将某个key加入到该结构，做到不重复加入。<br>delete(key)：将原本在结构中的某个key移除。<br>getRandom()：等概率随机返回结构中的任何一个key。<br><a id="more"></a><br>【要求】 Insert、delete和getRandom方法的时间复杂度都O(1)</p>
+<h3 id="【解答】"><a href="#【解答】" class="headerlink" title="【解答】"></a>【解答】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实现思路很简单，就是用两个 hashmap 来构成这个结构， keyIndexMap 、 indexKeyMap ,看到两个名字就懂了，没什么好说的。但是在实现 delete() 方法的时候要注意一下，如果直接将 map 中的元素删除掉，就会在 map 中留下一个空，当 getRandom() 的时候 时间复杂度就会不达标了，所以我们在删除的时候，用最后一个元素替换掉要删除的元素，同时把 size 减一，删掉最后一个，稳了。</p>
+<h3 id="【代码实现】"><a href="#【代码实现】" class="headerlink" title="【代码实现】"></a>【代码实现】</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Pool&lt;K&gt;&#123;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;K, Integer&gt; keyIndexMap;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, K&gt; indexKeyMap;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Pool</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.keyIndexMap = <span class="keyword">new</span> HashMap&lt;K, Integer&gt;();</span><br><span class="line">		<span class="keyword">this</span>.indexKeyMap = <span class="keyword">new</span> HashMap&lt;Integer, K&gt;();</span><br><span class="line">		<span class="keyword">this</span>.size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(K key)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">this</span>.keyIndexMap.containsKey(key))&#123;</span><br><span class="line">            <span class="keyword">this</span>.keyIndexMap.put(key, <span class="keyword">this</span>.size);</span><br><span class="line">            <span class="keyword">this</span>.IndexKeyMap.put(<span class="keyword">this</span>.size++, key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(K Key)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.keyIndexMap.containsKey(Key))&#123;</span><br><span class="line">            <span class="keyword">int</span> deleteIndex = <span class="keyword">this</span>.keyIndexMap.get(key);</span><br><span class="line">            <span class="keyword">int</span> lastIndex = --<span class="keyword">this</span>.size;</span><br><span class="line">            K lastKey = <span class="keyword">this</span>.indexMap.get(lastIndex);</span><br><span class="line">            <span class="keyword">this</span>.keyIndexMap.put(lastKey, deleteIndex);</span><br><span class="line">            <span class="keyword">this</span>.indexKeyMap.put(deleteIndex, lastKey);</span><br><span class="line">            <span class="keyword">this</span>.keyIndexMap.remove(key);</span><br><span class="line">            <span class="keyword">this</span>.indexKeyMap.remove(lastIndex);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> K <span class="title">getRandom</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.size == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> randomIndex = (<span class="keyword">int</span>)(Math.random() * <span class="keyword">this</span>.size);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.indexKeyMap.get(randomIndex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -445,8 +420,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/24/Https原理使么惊！/" rel="next" title="Https 原理使么惊！">
-                <i class="fa fa-chevron-left"></i> Https 原理使么惊！
+              <a href="/2018/08/20/已知一棵完全二叉树，求其节点的个数/" rel="next" title="已知一棵完全二叉树，求其节点的个数">
+                <i class="fa fa-chevron-left"></i> 已知一棵完全二叉树，求其节点的个数
               </a>
             
           </div>
@@ -454,10 +429,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/01/程序员代码面试指南/" rel="prev" title="程序员代码面试指南">
-                程序员代码面试指南 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -616,7 +587,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop-是什么"><span class="nav-number">1.</span> <span class="nav-text">Hadoop 是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop-有什么用"><span class="nav-number">2.</span> <span class="nav-text">Hadoop 有什么用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop-核心组件-HDFS"><span class="nav-number">3.</span> <span class="nav-text">Hadoop 核心组件 - HDFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop-核心组件-MapReduce"><span class="nav-number">4.</span> <span class="nav-text">Hadoop 核心组件 - MapReduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#【题目】"><span class="nav-number">1.</span> <span class="nav-text">【题目】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【解答】"><span class="nav-number">2.</span> <span class="nav-text">【解答】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【代码实现】"><span class="nav-number">3.</span> <span class="nav-text">【代码实现】</span></a></li></ol></div>
             
 
           </div>
