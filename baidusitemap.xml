@@ -4,6 +4,24 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/08/04/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2018-10-03T14:10:03.394Z</lastmod>
+    <data>
+        <display>
+        <title>冒泡排序</title>
+        <pubTime>2018-08-04T11:24:12.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="排序算法" url="http://yoursite.com/categories/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/08/20/%E8%AE%BE%E8%AE%A1RandomPool%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2018-08-20T15:45:04.543Z</lastmod>
     <data>
@@ -352,24 +370,6 @@
         <display>
         <title>插入排序</title>
         <pubTime>2018-08-04T15:17:58.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="排序算法" url="http://yoursite.com/categories/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/08/04/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</loc>
-    <lastmod>2018-08-04T14:21:56.076Z</lastmod>
-    <data>
-        <display>
-        <title>冒泡排序</title>
-        <pubTime>2018-08-04T11:24:12.000Z</pubTime>
         
          
            
