@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2018/10/16/%E5%88%9D%E8%AF%86Elasticsearch/</loc>
-    <lastmod>2018-10-17T15:40:56.705Z</lastmod>
+    <lastmod>2018-10-18T12:27:47.787Z</lastmod>
     <data>
         <display>
         <title>初识Elasticsearch</title>
@@ -15,6 +15,9 @@
          
          
            
+             
+              <breadCrumb title="Elasticsearch" url="http://yoursite.com/categories/Elasticsearch/"/>
+          
         </display>
     </data>
     </url>

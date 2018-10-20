@@ -73,6 +73,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="Junyi's Blog" type="application/atom+xml" />
 
@@ -89,7 +91,7 @@
 <meta property="og:site_name" content="Junyi&#39;s Blog">
 <meta property="og:description" content="本文将简单介绍一下 Elasticsearch 的一些基础概念，以及简单使用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-17T15:40:56.705Z">
+<meta property="og:updated_time" content="2018-10-18T12:27:47.787Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识Elasticsearch">
 <meta name="twitter:description" content="本文将简单介绍一下 Elasticsearch 的一些基础概念，以及简单使用。">
@@ -173,7 +175,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">用 smile 秒杀一切</p>
+        <p class="site-subtitle">种下一棵树最好的时间是十年前,其次是现在</p>
       
   </div>
 
@@ -345,19 +347,30 @@
           </span>
 
           
-
-          
+            <span class="post-category" >
             
-              <span class="post-comments-count">
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
+                <i class="fa fa-folder-o"></i>
               </span>
               
-                <a href="/2018/10/16/初识Elasticsearch/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/10/16/初识Elasticsearch/" itemprop="commentsCount"></span>
-                </a>
+                <span class="post-meta-item-text">分类于</span>
               
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Elasticsearch/" itemprop="url" rel="index">
+                    <span itemprop="name">Elasticsearch</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
             
           
 
@@ -535,11 +548,6 @@
           
 
   
-    <div class="comments" id="comments">
-      <div id="SOHUCS"></div>
-    </div>
-
-  
 
 
 
@@ -602,7 +610,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -841,7 +849,24 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
@@ -869,38 +894,6 @@
 
 
 
-
-  
-    <script type="text/javascript">
-    (function(){
-      var appid = 'cytNc4djX';
-      var conf = '02ef1b43c430e89dfb9a04f9760e4b97';
-      var width = window.innerWidth || document.documentElement.clientWidth;
-      if (width < 960) {
-      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
-        window.changyan.api.config({appid:appid,conf:conf})});
-      }
-    })();
-    </script>
-    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-  
 
 
 
