@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-18T12:27:47.787Z</updated>
+  <updated>2019-03-29T23:39:00.740Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深入理解JVM</title>
+    <link href="http://yoursite.com/2018/10/21/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM/"/>
+    <id>http://yoursite.com/2018/10/21/深入理解JVM/</id>
+    <published>2018-10-21T13:09:41.000Z</published>
+    <updated>2019-03-29T23:39:00.740Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>最近又读了一下《深入理解 JAVA 虚拟机 》，不过这次顺便做了个思维导图。</p></blockquote><a id="more"></a><img src="/2018/10/21/深入理解JVM/深入理解JVM.png">]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近又读了一下《深入理解 JAVA 虚拟机 》，不过这次顺便做了个思维导图。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Java基础" scheme="http://yoursite.com/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java注解的实现原理</title>
+    <link href="http://yoursite.com/2018/10/20/Java%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"/>
+    <id>http://yoursite.com/2018/10/20/Java注解的实现原理/</id>
+    <published>2018-10-20T13:09:41.000Z</published>
+    <updated>2019-03-29T23:44:41.960Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文将简单介绍一下 Java注解的实现原理</p></blockquote><a id="more"></a><h3 id="注解的定义"><a href="#注解的定义" class="headerlink" title="注解的定义"></a>注解的定义</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注解其实就是元数据，所谓元数据就是描述数据的数据，注解就是为其它数据提供它们的描述信息的。比如 @Override 这个注解放在方法上时就代表这个方法是覆盖了父类或者父接口的方法了，这样看来注解其实就是加强版的注释了，或者如果没有和它配合的执行代码，它和注释也没有两样</p><h3 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所有的注解类型都继承自这个普通的接口（Annotation）</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.SOURCE)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Override &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Override</span> <span class="keyword">extends</span> <span class="title">Annotation</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注解的本质就是一个继承了 Annotation 接口的接口。</p><h3 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Target：注解的作用目标</span><br><span class="line"></span><br><span class="line">@Retention：注解的生命周期</span><br><span class="line"></span><br><span class="line">@Documented：注解是否应当被包含在 JavaDoc 文档中</span><br><span class="line"></span><br><span class="line">@Inherited：是否允许子类继承该注解</span><br></pre></td></tr></table></figure><h4 id="Target"><a href="#Target" class="headerlink" title="@Target"></a>@Target</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ElementType.TYPE：允许被修饰的注解作用在类、接口和枚举上</span><br><span class="line"></span><br><span class="line">ElementType.FIELD：允许作用在属性字段上</span><br><span class="line"></span><br><span class="line">ElementType.METHOD：允许作用在方法上</span><br><span class="line"></span><br><span class="line">ElementType.PARAMETER：允许作用在方法参数上</span><br><span class="line"></span><br><span class="line">ElementType.CONSTRUCTOR：允许作用在构造器上</span><br><span class="line"></span><br><span class="line">ElementType.LOCAL_VARIABLE：允许作用在本地局部变量上</span><br><span class="line"></span><br><span class="line">ElementType.ANNOTATION_TYPE：允许作用在注解上</span><br><span class="line"></span><br><span class="line">ElementType.PACKAGE：允许作用在包上</span><br></pre></td></tr></table></figure><h4 id="Retention"><a href="#Retention" class="headerlink" title="@Retention"></a>@Retention</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RetentionPolicy.SOURCE：当前注解编译期可见，不会写入 class 文件</span><br><span class="line"></span><br><span class="line">RetentionPolicy.CLASS：类加载阶段丢弃，会写入 class 文件</span><br><span class="line"></span><br><span class="line">RetentionPolicy.RUNTIME：永久保存，可以反射获取</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文将简单介绍一下 Java注解的实现原理&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Java基础" scheme="http://yoursite.com/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>初识Elasticsearch</title>
@@ -378,46 +422,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;【基本思想】&quot;&gt;&lt;a href=&quot;#【基本思想】&quot; class=&quot;headerlink&quot; title=&quot;【基本思想】&quot;&gt;&lt;/a&gt;【基本思想】&lt;/h3&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;归并排序的基本思想是采用分治法，将已有的有序子序列合并，得到一个完整的有序序列&lt;br&gt;
-    
-    </summary>
-    
-      <category term="排序算法" scheme="http://yoursite.com/categories/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>插入排序</title>
-    <link href="http://yoursite.com/2018/08/04/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
-    <id>http://yoursite.com/2018/08/04/插入排序/</id>
-    <published>2018-08-04T15:17:58.000Z</published>
-    <updated>2018-08-04T15:57:31.749Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="【基本思想】"><a href="#【基本思想】" class="headerlink" title="【基本思想】"></a>【基本思想】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;插入排序的基本思想就是从有序序列后往前扫描，找到合适的位置，插入。可以形象地比喻成我们打牌的时候整理牌的顺序的方法。<br><a id="more"></a></p><h3 id="【算法复杂度】"><a href="#【算法复杂度】" class="headerlink" title="【算法复杂度】"></a>【算法复杂度】</h3><div class="table-container"><table><thead><tr><th>排序方法</th><th style="text-align:center">时间复杂度（平均）</th><th style="text-align:center">时间复杂度 （最坏）</th><th style="text-align:center">时间复杂度（最好）</th><th style="text-align:center">空间复杂度</th><th style="text-align:center">稳定性</th></tr></thead><tbody><tr><td>插入排序</td><td style="text-align:center">O(n^2)</td><td style="text-align:center">O(n^2)</td><td style="text-align:center">O(n)</td><td style="text-align:center">O(1)</td><td style="text-align:center">稳定</td></tr></tbody></table></div><h3 id="【动图演示】"><a href="#【动图演示】" class="headerlink" title="【动图演示】"></a>【动图演示】</h3><img src="/2018/08/04/插入排序/6d867acd56e40fb32975f9e91d041fa9_849589-20171015225645277-1151100000.gif" title="插入排序"><h3 id="【算法实现】"><a href="#【算法实现】" class="headerlink" title="【算法实现】"></a>【算法实现】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实现思路很简单，先判断一下数组大小，少于两个元素的数组排个鸡儿序。外层循环用 i 控制循环，直到最后一个元素，内层循环当满足 arr[j] 不会越界并且 arr<a href="有序序列最后一位">j</a> 与 arr[j+1] 相比较更大时发生交换，然后 j— 直到找到合适的位置。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> class <span class="title">InsertionSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr == <span class="keyword">null</span> || arr.length &lt;<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i -<span class="number">1</span>; j &gt;=<span class="number">0</span> &amp;&amp; arr[j] &gt; arr[j+<span class="number">1</span>]; j--)&#123;</span><br><span class="line">            swap(arr,j,j+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = arr[i];</span><br><span class="line">    arr[i] = arr[j];</span><br><span class="line">    arr[j] = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="【算法优化】"><a href="#【算法优化】" class="headerlink" title="【算法优化】"></a>【算法优化】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上面的实现方法中每一次插入排序会不断地交换位置，直到插入数字找到合适的位置，打过牌的同学都知道，你不可能把牌直接放最后，然后一直交换，直到找到合适的位置，恕我直言这样做就像个傻逼，正常人应该会直接将牌插入到合适的位置。同理，我们也可以这样优化一下插入排序，我们定义一个变量 tmp 保存要插入的值，当要交换时我们先不交换，而是把元素往后挪一下，直到找到合适的位置，用变量 j 来记录应该插入的位置，然后直接插入。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> class <span class="title">InsertionSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr == <span class="keyword">null</span> || arr.length &lt;<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = arr[i];</span><br><span class="line">        <span class="keyword">int</span> j;</span><br><span class="line">        <span class="keyword">for</span>(j = i -<span class="number">1</span>; j &gt;=<span class="number">0</span> &amp;&amp; arr[j] &gt; arr[j+<span class="number">1</span>]; j--)&#123;</span><br><span class="line">            arr[j+<span class="number">1</span>] = arr[j];</span><br><span class="line">        &#125;</span><br><span class="line">        arr[j] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;【基本思想】&quot;&gt;&lt;a href=&quot;#【基本思想】&quot; class=&quot;headerlink&quot; title=&quot;【基本思想】&quot;&gt;&lt;/a&gt;【基本思想】&lt;/h3&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;插入排序的基本思想就是从有序序列后往前扫描，找到合适的位置，插入。可以形象地比喻成我们打牌的时候整理牌的顺序的方法。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="排序算法" scheme="http://yoursite.com/categories/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>选择排序</title>
-    <link href="http://yoursite.com/2018/08/04/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
-    <id>http://yoursite.com/2018/08/04/选择排序/</id>
-    <published>2018-08-04T14:19:25.000Z</published>
-    <updated>2018-08-05T14:18:53.261Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="【基本思想】"><a href="#【基本思想】" class="headerlink" title="【基本思想】"></a>【基本思想】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择排序的基本思想就是在未排序序列当中找到最小（最大）元素，然后将最小（最大）元素放到排序序列的末尾，依次类推，直到排序完毕。<br><a id="more"></a></p><h3 id="【算法复杂度】"><a href="#【算法复杂度】" class="headerlink" title="【算法复杂度】"></a>【算法复杂度】</h3><div class="table-container"><table><thead><tr><th>排序方法</th><th style="text-align:center">时间复杂度（平均）</th><th style="text-align:center">时间复杂度 （最坏）</th><th style="text-align:center">时间复杂度（最好）</th><th style="text-align:center">空间复杂度</th><th style="text-align:center">稳定性</th></tr></thead><tbody><tr><td>选择排序</td><td style="text-align:center">O(n^2)</td><td style="text-align:center">O(n^2)</td><td style="text-align:center">O(n^2)</td><td style="text-align:center">O(1)</td><td style="text-align:center">不稳定</td></tr></tbody></table></div><h3 id="【动图演示】"><a href="#【动图演示】" class="headerlink" title="【动图演示】"></a>【动图演示】</h3><img src="/2018/08/04/选择排序/c7322fccb46e3cc0ea3c107781d1e880_849589-20171015224719590-1433219824.gif" title="选择排序"><h3 id="【算法实现】"><a href="#【算法实现】" class="headerlink" title="【算法实现】"></a>【算法实现】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实现思路很简单，先判断一下数组大小，少于两个元素的数组排个鸡儿序。外循环定义一个变量 i 控制循环过程，当 i = arr.length-1 的时候循环结束。然后内循环找出最小值，交换。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectionSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length-<span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> minIndex = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; arr.length; j++)&#123;</span><br><span class="line">            minIndex = arr[j] &lt; arr[minIndex] ? j : minIndex;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr,minIndex,i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = arr[i];</span><br><span class="line">    arr[i] = arr[j];</span><br><span class="line">    arr[j] = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;【基本思想】&quot;&gt;&lt;a href=&quot;#【基本思想】&quot; class=&quot;headerlink&quot; title=&quot;【基本思想】&quot;&gt;&lt;/a&gt;【基本思想】&lt;/h3&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;选择排序的基本思想就是在未排序序列当中找到最小（最大）元素，然后将最小（最大）元素放到排序序列的末尾，依次类推，直到排序完毕。&lt;br&gt;
     
     </summary>
     

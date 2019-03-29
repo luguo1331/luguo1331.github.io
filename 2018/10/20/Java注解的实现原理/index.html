@@ -81,19 +81,17 @@
 
 
 
-<meta name="description" content="【基本思想】&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;冒泡排序的基本思想就是将两两相邻的元素进行比较，大的交换到右边，这样一轮调整下来，最大的数就会上浮到最右边。重复这个步骤，直到剩下一个元素，排序完成。">
+<meta name="description" content="本文将简单介绍一下 Java注解的实现原理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="冒泡排序">
-<meta property="og:url" content="http://yoursite.com/2018/08/04/冒泡排序/index.html">
+<meta property="og:title" content="Java注解的实现原理">
+<meta property="og:url" content="http://yoursite.com/2018/10/20/Java注解的实现原理/index.html">
 <meta property="og:site_name" content="Junyi&#39;s Blog">
-<meta property="og:description" content="【基本思想】&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;冒泡排序的基本思想就是将两两相邻的元素进行比较，大的交换到右边，这样一轮调整下来，最大的数就会上浮到最右边。重复这个步骤，直到剩下一个元素，排序完成。">
+<meta property="og:description" content="本文将简单介绍一下 Java注解的实现原理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/08/04/冒泡排序/微信图片_20180804192527.gif">
-<meta property="og:updated_time" content="2018-10-03T14:10:03.394Z">
+<meta property="og:updated_time" content="2019-03-29T23:44:41.960Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="冒泡排序">
-<meta name="twitter:description" content="【基本思想】&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;冒泡排序的基本思想就是将两两相邻的元素进行比较，大的交换到右边，这样一轮调整下来，最大的数就会上浮到最右边。重复这个步骤，直到剩下一个元素，排序完成。">
-<meta name="twitter:image" content="http://yoursite.com/2018/08/04/冒泡排序/微信图片_20180804192527.gif">
+<meta name="twitter:title" content="Java注解的实现原理">
+<meta name="twitter:description" content="本文将简单介绍一下 Java注解的实现原理">
 
 
 
@@ -123,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/04/冒泡排序/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/20/Java注解的实现原理/"/>
 
 
 
 
 
-  <title>冒泡排序 | Junyi's Blog</title>
+  <title>Java注解的实现原理 | Junyi's Blog</title>
   
 
 
@@ -306,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/04/冒泡排序/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/20/Java注解的实现原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.junyi">
@@ -323,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">冒泡排序</h1>
+          <h1 class="post-title" itemprop="name headline">Java注解的实现原理</h1>
         
 
         <div class="post-meta">
@@ -335,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-04T19:24:12+08:00">
-                2018-08-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-20T21:09:41+08:00">
+                2018-10-20
               </time>
             
 
@@ -358,8 +356,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/排序算法/" itemprop="url" rel="index">
-                    <span itemprop="name">排序算法</span>
+                  <a href="/categories/Java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Java基础</span>
                   </a>
                 </span>
 
@@ -395,36 +393,17 @@
       
 
       
-        <h3 id="【基本思想】"><a href="#【基本思想】" class="headerlink" title="【基本思想】"></a>【基本思想】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;冒泡排序的基本思想就是将两两相邻的元素进行比较，大的交换到右边，这样一轮调整下来，最大的数就会上浮到最右边。重复这个步骤，直到剩下一个元素，排序完成。<br><a id="more"></a></p>
-<h3 id="【算法复杂度】"><a href="#【算法复杂度】" class="headerlink" title="【算法复杂度】"></a>【算法复杂度】</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>排序方法</th>
-<th style="text-align:center">时间复杂度（平均）</th>
-<th style="text-align:center">时间复杂度 （最坏）</th>
-<th style="text-align:center">时间复杂度（最好）</th>
-<th style="text-align:center">空间复杂度</th>
-<th style="text-align:center">稳定性</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>冒泡排序</td>
-<td style="text-align:center">O(n^2)</td>
-<td style="text-align:center">O(n^2)</td>
-<td style="text-align:center">O(n)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">稳定</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="【动图演示】"><a href="#【动图演示】" class="headerlink" title="【动图演示】"></a>【动图演示】</h3><img src="/2018/08/04/冒泡排序/微信图片_20180804192527.gif" title="冒泡排序">
-<h3 id="【算法实现】"><a href="#【算法实现】" class="headerlink" title="【算法实现】"></a>【算法实现】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实现思路很简单，先判断一下数组大小，少于两个元素的数组排个鸡儿序。定义一个 end 变量控制整个冒泡过程，每次冒泡的范围减一，直到等于零。然后相邻元素两两对比， arr[i] &gt; arr[i-1] 时交换。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> bubbleSort（<span class="keyword">int</span>[] arr）&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> end = arr.length -<span class="number">1</span>; end &gt; <span class="number">0</span>; end--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; end; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] &gt; arr[i+<span class="number">1</span>])&#123;</span><br><span class="line">                swap(arr, i, i+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = arr[i];</span><br><span class="line">    arr[i] = arr[j];</span><br><span class="line">    arr[j] = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="【算法优化】"><a href="#【算法优化】" class="headerlink" title="【算法优化】"></a>【算法优化】</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从上面的实现思路我们知道，在冒泡过程中发生最后一次交换的位置到数组末尾其实都是有序的，但是就算已经有序，程序还是会继续冒泡下去直到 end = 0，因此我们可以增加一个 pos 变量来记录最后一个交换的位置，当数组本身就接近有序时，就可以凭借 pos 变量跳过循环。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> end = arr.length-<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>( end &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; end; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] &gt; arr[i+<span class="number">1</span>])&#123;</span><br><span class="line">                pos = i;</span><br><span class="line">                swap(arr, i, i+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        end = pos;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;传统的冒泡排序每一趟冒泡只会有找出一个最大值（最小值），在这里可以用双指针法来让一次冒泡就找到最大值、最小值。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort2</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> right = arr.length-<span class="number">1</span>;	</span><br><span class="line">	<span class="keyword">int</span> tmp;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (left &lt; right)&#123;</span><br><span class="line">	    <span class="keyword">for</span>(tmp = left; tmp &lt;right; tmp++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(arr[tmp] &gt; arr[tmp+<span class="number">1</span>])&#123;</span><br><span class="line">				swap(arr,tmp,tmp+<span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		right--;</span><br><span class="line">		<span class="keyword">for</span>(tmp = right; tmp &gt; left; tmp-- )&#123;</span><br><span class="line">			<span class="keyword">if</span>(arr[tmp] &lt; arr[tmp-<span class="number">1</span>])&#123;</span><br><span class="line">				swap(arr,tmp,tmp-<span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		left++;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+        <blockquote>
+<p>本文将简单介绍一下 Java注解的实现原理</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="注解的定义"><a href="#注解的定义" class="headerlink" title="注解的定义"></a>注解的定义</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注解其实就是元数据，所谓元数据就是描述数据的数据，注解就是为其它数据提供它们的描述信息的。比如 @Override 这个注解放在方法上时就代表这个方法是覆盖了父类或者父接口的方法了，这样看来注解其实就是加强版的注释了，或者如果没有和它配合的执行代码，它和注释也没有两样</p>
+<h3 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所有的注解类型都继承自这个普通的接口（Annotation）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.SOURCE)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Override &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Override</span> <span class="keyword">extends</span> <span class="title">Annotation</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注解的本质就是一个继承了 Annotation 接口的接口。</p>
+<h3 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Target：注解的作用目标</span><br><span class="line"></span><br><span class="line">@Retention：注解的生命周期</span><br><span class="line"></span><br><span class="line">@Documented：注解是否应当被包含在 JavaDoc 文档中</span><br><span class="line"></span><br><span class="line">@Inherited：是否允许子类继承该注解</span><br></pre></td></tr></table></figure>
+<h4 id="Target"><a href="#Target" class="headerlink" title="@Target"></a>@Target</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ElementType.TYPE：允许被修饰的注解作用在类、接口和枚举上</span><br><span class="line"></span><br><span class="line">ElementType.FIELD：允许作用在属性字段上</span><br><span class="line"></span><br><span class="line">ElementType.METHOD：允许作用在方法上</span><br><span class="line"></span><br><span class="line">ElementType.PARAMETER：允许作用在方法参数上</span><br><span class="line"></span><br><span class="line">ElementType.CONSTRUCTOR：允许作用在构造器上</span><br><span class="line"></span><br><span class="line">ElementType.LOCAL_VARIABLE：允许作用在本地局部变量上</span><br><span class="line"></span><br><span class="line">ElementType.ANNOTATION_TYPE：允许作用在注解上</span><br><span class="line"></span><br><span class="line">ElementType.PACKAGE：允许作用在包上</span><br></pre></td></tr></table></figure>
+<h4 id="Retention"><a href="#Retention" class="headerlink" title="@Retention"></a>@Retention</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RetentionPolicy.SOURCE：当前注解编译期可见，不会写入 class 文件</span><br><span class="line"></span><br><span class="line">RetentionPolicy.CLASS：类加载阶段丢弃，会写入 class 文件</span><br><span class="line"></span><br><span class="line">RetentionPolicy.RUNTIME：永久保存，可以反射获取</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -477,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/03/用一个栈实现另一个栈的排序/" rel="next" title="用一个栈实现另一个栈的排序">
-                <i class="fa fa-chevron-left"></i> 用一个栈实现另一个栈的排序
+              <a href="/2018/10/16/初识Elasticsearch/" rel="next" title="初识Elasticsearch">
+                <i class="fa fa-chevron-left"></i> 初识Elasticsearch
               </a>
             
           </div>
@@ -487,8 +466,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/04/选择排序/" rel="prev" title="选择排序">
-                选择排序 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/21/深入理解JVM/" rel="prev" title="深入理解JVM">
+                深入理解JVM <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -686,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#【基本思想】"><span class="nav-number">1.</span> <span class="nav-text">【基本思想】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【算法复杂度】"><span class="nav-number">2.</span> <span class="nav-text">【算法复杂度】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【动图演示】"><span class="nav-number">3.</span> <span class="nav-text">【动图演示】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【算法实现】"><span class="nav-number">4.</span> <span class="nav-text">【算法实现】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【算法优化】"><span class="nav-number">5.</span> <span class="nav-text">【算法优化】</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#注解的定义"><span class="nav-number">1.</span> <span class="nav-text">注解的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义注解"><span class="nav-number">2.</span> <span class="nav-text">自定义注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元注解"><span class="nav-number">3.</span> <span class="nav-text">元注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Target"><span class="nav-number">3.1.</span> <span class="nav-text">@Target</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Retention"><span class="nav-number">3.2.</span> <span class="nav-text">@Retention</span></a></li></ol></li></ol></div>
             
 
           </div>
